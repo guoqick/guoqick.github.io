@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-15T09:20:52.653Z</updated>
+  <updated>2018-05-18T13:01:10.952Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2018/05/18/idea%E5%BF%AB%E6%8D%B7%E9%8D%B5/"/>
+    <id>http://yoursite.com/2018/05/18/idea快捷鍵/</id>
+    <published>2018-05-18T13:00:10.895Z</published>
+    <updated>2018-05-18T13:01:10.952Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>---  title: intellij idea�������ؿ�ݼ�---  �鿴һ�������з���:Ctrl+F12  ���Ͽ�һ��:Ctrl+ALT+Enter  ���¿�һ��:Shift+Enter  ��д�ӿ�ʵ����:Ctrl+I  ��ʽ�����룺Ctrl+Alt+L  ��Сд�л�: Ctrl+Shift+U  �����,�Զ�������Alt+Enter   ȥ��δ���õ���Ͱ���Ctrl+Alt+O   Ctrl+P ����������ʾ  Ctrl+H ��ʾ��ṹͼ  Ctrl+N  ������  Ctrl+Shift+N �����ļ�  ��ȫ����:Ctrl+ALT+V  ������Ctrl+F  try...catch..:Ctrl+Alt+T  �����ƶ������飺Ctrl+Shift+��  �����ƶ������飺Ctrl+Shift+��  ɾ���У�Ctrl+X   �����У�Ctrl+D  ���ٴ򿪻����ع�����壺Alt+1  ����get��set������ݼ���Alt+insert��  ����δʵ�ֵķ���,ǿ������ת����Alt+Enter  �ϵ��ʽ�鿴ֵ��Alt+F8  ���ÿ�ݼ���Alt+F7  maven�������install -Dmaven.test.skip=true  ���г���shift+Ctrl+F10  Debug:F7(����Ƕ�׵ķ��������) F8(����Ƕ�׷�������) F9(������һ���ϵ�)  ����:Ctrl+Alt+S  �滻��Ctrl+R  �½�Modules��Ctrl+Shift+Alt+T  psvm��public static void main(String[] args)  sout��System.out.println();  ȫ�Ĳ��ң�Ctrl+Shift+F</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code&gt;---
+  title: intellij idea�������ؿ�ݼ�
+---
+
+  �鿴һ�������з���:Ctrl+F12
+  ���Ͽ�һ��:Ctrl+ALT+Enter
+  ���¿�һ��:Shift+Enter
+
+  ��д�ӿ�ʵ
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>java程序员面试99问</title>
