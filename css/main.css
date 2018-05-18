@@ -1090,7 +1090,7 @@ pre .javascript .function {
   bottom: 30px;
 }
 .header {
-  background: url("https://guoqick.oss-cn-beijing.aliyuncs.com/wechat-qcode.jpg");
+  background: url("https://guoqick.oss-cn-beijing.aliyuncs.com/background.jpg");
 }
 .header-inner {
   position: relative;
@@ -1833,7 +1833,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #a14bff;
+  background: #8edd55;
 }
 .links-of-blogroll {
   font-size: 13px;
