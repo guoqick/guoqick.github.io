@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-29T16:35:04.297Z</updated>
+  <updated>2018-05-29T17:16:02.835Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>通过zxing生成二维码</title>
+    <link href="http://yoursite.com/2018/05/30/%E9%80%9A%E8%BF%87zxing%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81/"/>
+    <id>http://yoursite.com/2018/05/30/通过zxing生成二维码/</id>
+    <published>2018-05-29T17:16:28.784Z</published>
+    <updated>2018-05-29T17:16:02.835Z</updated>
+    
+    <content type="html"><![CDATA[<p>​       二维码现在随处可见，在日常的开发中，也会经常涉及到二维码的生成，特别是开发一些活动或者推广方面的功能时，<br>二维码甚至成为必备功能点。本文介绍通过 google 的 zxing 包生成带 logo 的二维码的过程，供大家参考。<br>完整的 demo ,请查看我的 github</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.guoqick.zxing;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.google.zxing.BarcodeFormat;</span><br><span class="line"><span class="keyword">import</span> com.google.zxing.EncodeHintType;</span><br><span class="line"><span class="keyword">import</span> com.google.zxing.MultiFormatWriter;</span><br><span class="line"><span class="keyword">import</span> com.google.zxing.client.j2se.MatrixToImageWriter;</span><br><span class="line"><span class="keyword">import</span> com.google.zxing.common.BitMatrix;</span><br><span class="line"><span class="keyword">import</span> com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Path;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">createQRCode</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> width = <span class="number">300</span>;</span><br><span class="line">        <span class="keyword">int</span> height = <span class="number">300</span>;</span><br><span class="line">        String format = <span class="string">"png"</span>;</span><br><span class="line">        String content = <span class="string">"熊亚男太美丽了，太爱你了！！！"</span>;</span><br><span class="line">        <span class="comment">//定义二维码的参数</span></span><br><span class="line">        HashMap hints = <span class="keyword">new</span> HashMap();</span><br><span class="line">        hints.put(EncodeHintType.CHARACTER_SET, <span class="string">"utf-8"</span>);</span><br><span class="line">        hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.M);</span><br><span class="line">        hints.put(EncodeHintType.MARGIN, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            BitMatrix bitMatrix = <span class="keyword">new</span> MultiFormatWriter().encode(content, BarcodeFormat.QR_CODE, width, height, hints);</span><br><span class="line">            Path file = <span class="keyword">new</span> File(<span class="string">"E:/code/img.png"</span>).toPath();</span><br><span class="line">            MatrixToImageWriter.writeToPath(bitMatrix,format,file);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​       二维码现在随处可见，在日常的开发中，也会经常涉及到二维码的生成，特别是开发一些活动或者推广方面的功能时，&lt;br&gt;二维码甚至成为必备功能点。本文介绍通过 google 的 zxing 包生成带 logo 的二维码的过程，供大家参考。&lt;br&gt;完整的 demo ,
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>BIO与NIO、AIO的区别</title>
