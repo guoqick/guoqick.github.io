@@ -97,12 +97,12 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12253573-f7ae6b97e9d8158c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12253573-77cb44a820e56481.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12253573-7d7a517d14ca4b45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://yoursite.com/2018/06/03/BIO,NIO,AIO学习笔记/assets/buffers-modes.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12253573-4f05e0bf6b4092fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12253573-6c12c7fbdf8b8641.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12253573-bc98928415f0e3a8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12253573-cae64631861a6ee0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://yoursite.com/2018/06/03/BIO,NIO,AIO学习笔记/assets/12253573-9302f20c78103fbf.png">
-<meta property="og:updated_time" content="2018-06-03T07:03:26.416Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12253573-0c5dc6435ff44191.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-06-03T07:37:14.641Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BIO与NIO、AIO学习笔记">
 <meta name="twitter:description" content="前言java的核心库java.io提供了全面的IO接口。包括：文件读写、标准设备输出等。Java中IO是以流为基础进行输入输出的，所有数据被串行化写入输出流，或者从输入流读入。 java.nio（java non-blocking IO），nio 是non-blocking的简称，是jdk1.4 及以上版本里提供的新api（New IO） ，为所有的原始类型（boolean类型除外）提供缓存支持。">
@@ -576,7 +576,7 @@ try {
 <li><strong>position</strong>：当你写数据到Buffer中时，position表示当前的位置。初始的position值为0.当一个byte、long等数据写到Buffer后， position会向前移动到下一个可插入数据的 Buffer 单元。position 最大可为 capacity – 1。 当读取数据时，也是从某个特定位置读。当将 Buffer 从写模式切换到读模式，position会被重置为 0。当从Buffer的 position 处读取数据时，position 向前移动到下一个可读的位置。 </li>
 <li><strong>limit</strong>：在写模式下，Buffer的limit表示你最多能往 Buffer 里写多少数据。 <strong>写模式下</strong>，limit 等于 Buffer 的 capacity 。 当切换Buffer到读模式时， limit 表示你<strong>最多</strong>能读到多少数据。因此，当切换Buffer到读模式时，limit 会被设置成写模式下的 position 值。换句话说，你能读到之前写入的所有数据（limit被设置成已写数据的数量，这个值在写模式下就是 position ）。 </li>
 </ul>
-<p><img src="assets/buffers-modes.png" alt="img"> </p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12253573-4f05e0bf6b4092fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="buffers-modes.png"></p>
 <h6 id="Buffer的类型"><a href="#Buffer的类型" class="headerlink" title="Buffer的类型"></a><strong>Buffer的类型</strong></h6><p>Java NIO 有以下Buffer类型： </p>
 <ul>
 <li>ByteBuffer</li>
@@ -789,7 +789,7 @@ while(true) {
 <h6 id="Datagram-通道"><a href="#Datagram-通道" class="headerlink" title="Datagram 通道"></a>Datagram 通道</h6><p>Java NIO中的DatagramChannel是一个能收发UDP包的通道。因为UDP是无连接的网络协议，所以不能像其它通道那样读取和写入。它发送和接收的是数据包。</p>
 <p>Datagram 通道就作为大家自学的内容。</p>
 <h5 id="管道（Pipe）"><a href="#管道（Pipe）" class="headerlink" title="管道（Pipe）"></a>管道（Pipe）</h5><p>Java NIO 管道是2个线程之间的单向数据连接。Pipe有一个source通道和一个sink通道。数据会被写到sink通道，从source通道读取。 </p>
-<p> <img src="assets/12253573-9302f20c78103fbf.png" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12253573-0c5dc6435ff44191.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="12253573-9302f20c78103fbf.png"></p>
 <h6 id="创建管道"><a href="#创建管道" class="headerlink" title="创建管道"></a><strong>创建管道</strong></h6><p>通过Pipe.open()方法打开管道。例如： </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Pipe pipe = Pipe.open();</span><br></pre></td></tr></table></figure>
 <h6 id="向管道写数据"><a href="#向管道写数据" class="headerlink" title="向管道写数据"></a><strong>向管</strong>道写数据</h6><p>要向管道写数据，需要访问sink通道。像这样： </p>
