@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-03T12:12:50.722Z</updated>
+  <updated>2018-06-04T01:53:57.811Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一种数组去重方法</title>
+    <link href="http://yoursite.com/2018/06/04/%E4%B8%80%E7%A7%8D%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2018/06/04/一种数组去重方法/</id>
+    <published>2018-06-04T01:54:39.566Z</published>
+    <updated>2018-06-04T01:53:57.811Z</updated>
+    
+    <content type="html"><![CDATA[<p>数组如何去重呢？可以先转成一个list集合，然后再把这个list集合整体放入一个新的LinkedHashSet&lt;&gt;中，hashSet不会添加重复的元素，这样就去除了那些重复的；最后再把这个LinkedHashSet&lt;&gt;转换为数组就可以了。下面贴上我的代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">package cn.guoqick.demo;</span><br><span class="line"></span><br><span class="line">import java.util.Arrays;</span><br><span class="line">import java.util.LinkedHashSet;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class Test01 &#123;</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">Integer[] array = &#123;10,10,10,5,5,5,100,20,2000,2000,20,20,80,80,80,80&#125;;</span><br><span class="line">//把数组变成集合</span><br><span class="line">List&lt;Integer&gt; list = Arrays.asList(array);</span><br><span class="line">//定义一个LinkedHashSet集合,可以去重并且按照存入的顺序进行显示</span><br><span class="line">LinkedHashSet&lt;Integer&gt; lhs = new LinkedHashSet&lt;&gt;();</span><br><span class="line">//将list中的内容添加到lhs中</span><br><span class="line">lhs.addAll(list);</span><br><span class="line">//把lhs集合中的内容变成数组</span><br><span class="line">Integer[] newArray = lhs.toArray(new Integer[lhs.size()]);</span><br><span class="line">System.out.println(&quot;原数组: &quot;+Arrays.toString(array));</span><br><span class="line">System.out.println(&quot;去重后的数组: &quot;+Arrays.toString(newArray));</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;数组如何去重呢？可以先转成一个list集合，然后再把这个list集合整体放入一个新的LinkedHashSet&amp;lt;&amp;gt;中，hashSet不会添加重复的元素，这样就去除了那些重复的；最后再把这个LinkedHashSet&amp;lt;&amp;gt;转换为数组就可以了。下面贴上我的
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>BIO与NIO、AIO学习笔记</title>

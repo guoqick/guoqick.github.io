@@ -81,14 +81,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="commonweal">
-<meta property="og:url" content="http://yoursite.com/commonweal/index.html">
+<meta name="description" content="数组如何去重呢？可以先转成一个list集合，然后再把这个list集合整体放入一个新的LinkedHashSet&amp;lt;&amp;gt;中，hashSet不会添加重复的元素，这样就去除了那些重复的；最后再把这个LinkedHashSet&amp;lt;&amp;gt;转换为数组就可以了。下面贴上我的代码： 123456789101112131415161718192021package cn.guoqick.demo;im">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一种数组去重方法">
+<meta property="og:url" content="http://yoursite.com/2018/06/04/一种数组去重方法/index.html">
 <meta property="og:site_name" content="郭琪的博客">
+<meta property="og:description" content="数组如何去重呢？可以先转成一个list集合，然后再把这个list集合整体放入一个新的LinkedHashSet&amp;lt;&amp;gt;中，hashSet不会添加重复的元素，这样就去除了那些重复的；最后再把这个LinkedHashSet&amp;lt;&amp;gt;转换为数组就可以了。下面贴上我的代码： 123456789101112131415161718192021package cn.guoqick.demo;im">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-15T12:20:27.810Z">
+<meta property="og:updated_time" content="2018-06-04T01:53:57.811Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="commonweal">
+<meta name="twitter:title" content="一种数组去重方法">
+<meta name="twitter:description" content="数组如何去重呢？可以先转成一个list集合，然后再把这个list集合整体放入一个新的LinkedHashSet&amp;lt;&amp;gt;中，hashSet不会添加重复的元素，这样就去除了那些重复的；最后再把这个LinkedHashSet&amp;lt;&amp;gt;转换为数组就可以了。下面贴上我的代码： 123456789101112131415161718192021package cn.guoqick.demo;im">
 
 
 
@@ -118,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/commonweal/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/04/一种数组去重方法/"/>
 
 
 
 
 
-  <title>commonweal | 郭琪的博客</title>
+  <title>一种数组去重方法 | 郭琪的博客</title>
   
 
 
@@ -260,33 +263,191 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/04/一种数组去重方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="郭 琪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭琪的博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">commonweal</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">一种数组去重方法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-04T09:54:39+08:00">
+                2018-06-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-      </div>
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>数组如何去重呢？可以先转成一个list集合，然后再把这个list集合整体放入一个新的LinkedHashSet&lt;&gt;中，hashSet不会添加重复的元素，这样就去除了那些重复的；最后再把这个LinkedHashSet&lt;&gt;转换为数组就可以了。下面贴上我的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">package cn.guoqick.demo;</span><br><span class="line"></span><br><span class="line">import java.util.Arrays;</span><br><span class="line">import java.util.LinkedHashSet;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class Test01 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Integer[] array = &#123;10,10,10,5,5,5,100,20,2000,2000,20,20,80,80,80,80&#125;;</span><br><span class="line">		//把数组变成集合</span><br><span class="line">		List&lt;Integer&gt; list = Arrays.asList(array);</span><br><span class="line">		//定义一个LinkedHashSet集合,可以去重并且按照存入的顺序进行显示</span><br><span class="line">		LinkedHashSet&lt;Integer&gt; lhs = new LinkedHashSet&lt;&gt;();</span><br><span class="line">		//将list中的内容添加到lhs中</span><br><span class="line">		lhs.addAll(list);</span><br><span class="line">		//把lhs集合中的内容变成数组</span><br><span class="line">		Integer[] newArray = lhs.toArray(new Integer[lhs.size()]);</span><br><span class="line">		System.out.println(&quot;原数组: &quot;+Arrays.toString(array));</span><br><span class="line">		System.out.println(&quot;去重后的数组: &quot;+Arrays.toString(newArray));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
     
     
+	
+	<div>
+  
+    ﻿<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.png" alt="郭 琪 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/03/BIO,NIO,AIO学习笔记/" rel="next" title="BIO与NIO、AIO学习笔记">
+                <i class="fa fa-chevron-left"></i> BIO与NIO、AIO学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        ﻿ <!--MOB SHARE BEGIN-->
+                                <div class="-mob-share-ui-button -mob-share-open">分享</div>
+                                <div class="-mob-share-ui" style="display: none">
+                                    <ul class="-mob-share-list">
+                                        <li class="-mob-share-weibo"><p>新浪微博</p></li>
+                                        <li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+                                        <li class="-mob-share-qzone"><p>QQ空间</p></li>
+                                        <li class="-mob-share-qq"><p>QQ好友</p></li>
+                                        <li class="-mob-share-weixin"><p>微信</p></li>
+                                        <li class="-mob-share-douban"><p>豆瓣</p></li>
+                                        <li class="-mob-share-renren"><p>人人网</p></li>
+                                        <li class="-mob-share-kaixin"><p>开心网</p></li>
+                                        <li class="-mob-share-facebook"><p>Facebook</p></li>
+                                        <li class="-mob-share-twitter"><p>Twitter</p></li>
+                                        <li class="-mob-share-pocket"><p>Pocket</p></li>
+                                        <li class="-mob-share-google"><p>Google+</p></li>
+                                        <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+                                        <li class="-mob-share-mingdao"><p>明道</p></li>
+                                        <li class="-mob-share-pengyou"><p>朋友网</p></li>
+                                        <li class="-mob-share-tumblr"><p>Tumblr</p></li>
+                                        <li class="-mob-share-instapaper"><p>Instapaper</p></li>
+                                        <li class="-mob-share-linkedin"><p>LinkedIn</p></li>
+                                    </ul>
+                                    <div class="-mob-share-close">取消</div>
+                                </div>
+                                <div class="-mob-share-ui-bg"></div>
+                                <script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=25e1879146e04"></script>
+                                <!--MOB SHARE END-->
+      
+    </div>
   </div>
 
 
