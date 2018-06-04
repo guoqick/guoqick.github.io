@@ -1,0 +1,925 @@
+﻿<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="郭琪的博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="一、LinkedList实现原理概述LinkedList 和 ArrayList 一样，都实现了 List 接口，但其内部的数据结构有本质的不同。LinkedList 是基于链表实现的（通过名字也能区分开来），所以它的插入和删除操作比 ArrayList 更加高效。但也是由于其为基于链表的，所以随机访问的效率要比 ArrayList 差。 二、LinkedList类定义123public clas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LinkedList原理总结">
+<meta property="og:url" content="http://yoursite.com/2018/06/04/LinkedList原理总结/index.html">
+<meta property="og:site_name" content="郭琪的博客">
+<meta property="og:description" content="一、LinkedList实现原理概述LinkedList 和 ArrayList 一样，都实现了 List 接口，但其内部的数据结构有本质的不同。LinkedList 是基于链表实现的（通过名字也能区分开来），所以它的插入和删除操作比 ArrayList 更加高效。但也是由于其为基于链表的，所以随机访问的效率要比 ArrayList 差。 二、LinkedList类定义123public clas">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://img-blog.csdn.net/20160420215938702">
+<meta property="og:image" content="https://img-blog.csdn.net/20160420220126096">
+<meta property="og:image" content="https://img-blog.csdn.net/20160420220144205">
+<meta property="og:image" content="https://img-blog.csdn.net/20160420220232581">
+<meta property="og:image" content="https://img-blog.csdn.net/20160420220301878">
+<meta property="og:image" content="https://img-blog.csdn.net/20160420220320754">
+<meta property="og:image" content="https://img-blog.csdn.net/20160420220427832">
+<meta property="og:image" content="https://img-blog.csdn.net/20160420220353598">
+<meta property="og:image" content="https://img-blog.csdn.net/20160420220455316">
+<meta property="og:image" content="https://img-blog.csdn.net/20160420220515381">
+<meta property="og:updated_time" content="2018-06-04T08:26:45.624Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LinkedList原理总结">
+<meta name="twitter:description" content="一、LinkedList实现原理概述LinkedList 和 ArrayList 一样，都实现了 List 接口，但其内部的数据结构有本质的不同。LinkedList 是基于链表实现的（通过名字也能区分开来），所以它的插入和删除操作比 ArrayList 更加高效。但也是由于其为基于链表的，所以随机访问的效率要比 ArrayList 差。 二、LinkedList类定义123public clas">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20160420215938702">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/04/LinkedList原理总结/"/>
+
+
+
+
+
+  <title>LinkedList原理总结 | 郭琪的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+	
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">郭琪的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">人生如逆旅，我亦是行人。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tag"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/category/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/commonweal/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/04/LinkedList原理总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="郭 琪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭琪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">LinkedList原理总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-04T16:26:13+08:00">
+                2018-06-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、LinkedList实现原理概述"><a href="#一、LinkedList实现原理概述" class="headerlink" title="一、LinkedList实现原理概述"></a>一、LinkedList实现原理概述</h2><p>LinkedList 和 ArrayList 一样，都实现了 List 接口，但其内部的数据结构有本质的不同。LinkedList 是基于链表实现的（通过名字也能区分开来），所以它的插入和删除操作比 ArrayList 更加高效。但也是由于其为基于链表的，所以随机访问的效率要比 ArrayList 差。</p>
+<h2 id="二、LinkedList类定义"><a href="#二、LinkedList类定义" class="headerlink" title="二、LinkedList类定义"></a>二、LinkedList类定义</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class LinkedList&lt;E&gt;</span><br><span class="line">     extends AbstractSequentialList&lt;E&gt;</span><br><span class="line">     implements List&lt;E&gt;, Deque&lt;E&gt;, Cloneable, java.io.Serializable123</span><br></pre></td></tr></table></figure>
+<ol>
+<li>LinkedList 是一个继承于AbstractSequentialList的双向链表。它也可以被当作堆栈、队列或双端队列进行操作。</li>
+<li>LinkedList 实现 List 接口，能对它进行队列操作。</li>
+<li>LinkedList 实现 Deque 接口，即能将LinkedList当作双端队列使用。</li>
+<li>LinkedList 实现了Cloneable接口，即覆盖了函数clone()，能克隆。</li>
+<li>LinkedList 实现java.io.Serializable接口，这意味着LinkedList支持序列化，能通过序列化去传输。</li>
+<li>LinkedList 是非同步的。</li>
+</ol>
+<p>为什么要继承自AbstractSequentialList ?<br>AbstractSequentialList 实现了get(int index)、set(int index, E element)、add(int index, E element) 和 remove(int index)这些骨干性函数。降低了List接口的复杂度。这些接口都是随机访问List的，LinkedList是双向链表；既然它继承于AbstractSequentialList，就相当于已经实现了“get(int index)这些接口”。<br>此外，我们若需要通过AbstractSequentialList自己实现一个列表，只需要扩展此类，并提供 listIterator() 和 size() 方法的实现即可。若要实现不可修改的列表，则需要实现列表迭代器的 hasNext、next、hasPrevious、previous 和 index 方法即可。</p>
+<p>LinkedList的类图关系：</p>
+<p><img src="https://img-blog.csdn.net/20160420215938702" alt="这里写图片描述"></p>
+<h2 id="三、LinkedList数据结构原理"><a href="#三、LinkedList数据结构原理" class="headerlink" title="三、LinkedList数据结构原理"></a>三、LinkedList数据结构原理</h2><p>LinkedList底层的数据结构是基于双向循环链表的，且头结点中不存放数据,如下：<br><img src="https://img-blog.csdn.net/20160420220126096" alt="这里写图片描述"><br>既然是双向链表，那么必定存在一种数据结构——我们可以称之为节点，节点实例保存业务数据，前一个节点的位置信息和后一个节点位置信息，如下图所示：<br><img src="https://img-blog.csdn.net/20160420220144205" alt="这里写图片描述"></p>
+<h2 id="四、私有属性"><a href="#四、私有属性" class="headerlink" title="四、私有属性"></a>四、私有属性</h2><p>LinkedList中之定义了两个属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">private transient Entry&lt;E&gt; header = new Entry&lt;E&gt;(null, null, null);2 private transient int size = 0;1</span><br></pre></td></tr></table></figure>
+<p>header是双向链表的头节点，它是双向链表节点所对应的类Entry的实例。Entry中包含成员变量： previous, next, element。其中，previous是该节点的上一个节点，next是该节点的下一个节点，element是该节点所包含的值。<br>　　size是双向链表中节点实例的个数。<br>首先来了解节点类Entry类的代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">private static class Entry&lt;E&gt; &#123;</span><br><span class="line">    E element;</span><br><span class="line">     Entry&lt;E&gt; next;</span><br><span class="line">     Entry&lt;E&gt; previous;</span><br><span class="line"></span><br><span class="line">     Entry(E element, Entry&lt;E&gt; next, Entry&lt;E&gt; previous) &#123;</span><br><span class="line">         this.element = element;</span><br><span class="line">         this.next = next;</span><br><span class="line">        this.previous = previous;</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;1234567891011</span><br></pre></td></tr></table></figure>
+<p>节点类很简单，element存放业务数据，previous与next分别存放前后节点的信息（在数据结构中我们通常称之为前后节点的指针）。</p>
+<p>}</p>
+<h2 id="五、构造方法"><a href="#五、构造方法" class="headerlink" title="五、构造方法"></a>五、构造方法</h2><p>LinkedList提供了两个构造方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public LinkedList() &#123;    </span><br><span class="line"> header.next = header.previous = header;</span><br><span class="line"> &#125;</span><br><span class="line">public LinkedList(Collection&lt;? extends E&gt; c) &#123;</span><br><span class="line">     this();</span><br><span class="line">   addAll(c);123456</span><br></pre></td></tr></table></figure>
+<p>第一个构造方法不接受参数，将header实例的previous和next全部指向header实例（注意，这个是一个双向循环链表，如果不是循环链表，空链表的情况应该是header节点的前一节点和后一节点均为null），这样整个链表其实就只有header一个节点，用于表示一个空的链表。<br>执行完构造函数后，header实例自身形成一个闭环，如下图所示：<br><img src="https://img-blog.csdn.net/20160420220232581" alt="这里写图片描述"><br>第二个构造方法接收一个Collection参数c，调用第一个构造方法构造一个空的链表，之后通过addAll将c中的元素全部添加到链表中。</p>
+<h2 id="六、元素添加"><a href="#六、元素添加" class="headerlink" title="六、元素添加"></a>六、元素添加</h2><p>下面说明双向链表添加元素add()的原理:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> // 将元素(E)添加到LinkedList中</span><br><span class="line">     public boolean add(E e) &#123;</span><br><span class="line">         // 将节点(节点数据是e)添加到表头(header)之前。</span><br><span class="line">         // 即，将节点添加到双向链表的末端。         addBefore(e, header);</span><br><span class="line">         return true;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     public void add(int index, E element) &#123;</span><br><span class="line">         addBefore(element, (index==size ? header : entry(index)));</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">    private Entry&lt;E&gt; addBefore(E e, Entry&lt;E&gt; entry) &#123;</span><br><span class="line">         Entry&lt;E&gt; newEntry = new Entry&lt;E&gt;(e, entry, entry.previous);</span><br><span class="line">         newEntry.previous.next = newEntry;</span><br><span class="line">         newEntry.next.previous = newEntry;</span><br><span class="line">         size++;</span><br><span class="line">         modCount++;</span><br><span class="line">         return newEntry;</span><br><span class="line">&#125;12345678910111213141516171819</span><br></pre></td></tr></table></figure>
+<p>addBefore(E e,Entry entry)方法是个私有方法，所以无法在外部程序中调用（当然，这是一般情况，你可以通过反射上面的还是能调用到的）。<br>addBefore(E e,Entry entry)先通过Entry的构造方法创建e的节点newEntry（包含了将其下一个节点设置为entry，上一个节点设置为entry.previous的操作，相当于修改newEntry的“指针”），之后修改插入位置后newEntry的前一节点的next引用和后一节点的previous引用，使链表节点间的引用关系保持正确。之后修改和size大小和记录modCount，然后返回新插入的节点。<br>下面分解“添加第一个数据”的步骤：<br>第一步：初始化后LinkedList实例的情况：<br><img src="https://img-blog.csdn.net/20160420220301878" alt="这里写图片描述"><br>第二步：初始化一个预添加的Entry实例（newEntry）。<br>Entry newEntry = newEntry(e, entry, entry.previous);<br><img src="https://img-blog.csdn.net/20160420220320754" alt="这里写图片描述"></p>
+<p>第三步：调整新加入节点和头结点（header）的前后指针。<br>newEntry.previous.next = newEntry;<br>newEntry.previous即header，newEntry.previous.next即header的next指向newEntry实例。在上图中应该是“4号线”指向newEntry。<br>newEntry.next.previous = newEntry;<br>newEntry.next即header，newEntry.next.previous即header的previous指向newEntry实例。在上图中应该是“3号线”指向newEntry。<br>调整后如下图所示：<br>图——加入第一个节点后LinkedList示意图<br><img src="https://img-blog.csdn.net/20160420220427832" alt="这里写图片描述"><br>下面分解“添加第二个数据”的步骤：<br>第一步：新建节点。<br>图——添加第二个节点<br><img src="https://img-blog.csdn.net/20160420220353598" alt="这里写图片描述"><br>第二步：调整新节点和头结点的前后指针信息。<br>图——调整前后指针信息<br><img src="https://img-blog.csdn.net/20160420220455316" alt="这里写图片描述"><br>添加后续数据情况和上述一致，LinkedList实例是没有容量限制的。</p>
+<p>总结，addBefore(E e,Entry entry)实现在entry之前插入由e构造的新节点。而add(E e)实现在header节点之前插入由e构造的新节点。为了便于理解，下面给出插入节点的示意图。<br><img src="https://img-blog.csdn.net/20160420220515381" alt="这里写图片描述"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public void addFirst(E e) &#123;</span><br><span class="line">     addBefore(e, header.next);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> public void addLast(E e) &#123;</span><br><span class="line">     addBefore(e, header);</span><br><span class="line"> &#125;1234567</span><br></pre></td></tr></table></figure>
+<p>看上面的示意图，结合addBefore(E e,Entry entry)方法，很容易理解addFrist(E e)只需实现在header元素的下一个元素之前插入，即示意图中的一号之前。addLast(E e)只需在实现在header节点前（因为是循环链表，所以header的前一个节点就是链表的最后一个节点）插入节点（插入后在2号节点之后）。</p>
+<h2 id="七、删除数据remove"><a href="#七、删除数据remove" class="headerlink" title="七、删除数据remove()"></a>七、删除数据remove()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public E remove(int index) &#123;</span><br><span class="line">        Entry e = get(index);</span><br><span class="line">        remove(e);</span><br><span class="line">        return e.element;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void remove(E e) &#123;</span><br><span class="line">        if (e == header)</span><br><span class="line">            throw new NoSuchElementException();</span><br><span class="line">        // 将前一节点的next引用赋值为e的下一节点</span><br><span class="line">        e.previous.next = e.next;</span><br><span class="line">        // 将e的下一节点的previous赋值为e的上一节点</span><br><span class="line">        e.next.previous = e.previous;</span><br><span class="line">        // 上面两条语句的执行已经导致了无法在链表中访问到e节点，而下面解除了e节点对前后节点的引用</span><br><span class="line">        e.next = e.previous = null;</span><br><span class="line">        // 将被移除的节点的内容设为null</span><br><span class="line">        e.element = null;</span><br><span class="line">        // 修改size大小</span><br><span class="line">        size--;</span><br><span class="line">    &#125;1234567891011121314151617181920</span><br></pre></td></tr></table></figure>
+<p>由于删除了某一节点因此调整相应节点的前后指针信息，如下：<br>e.previous.next = e.next;//预删除节点的前一节点的后指针指向预删除节点的后一个节点。<br>e.next.previous = e.previous;//预删除节点的后一节点的前指针指向预删除节点的前一个节点。<br>清空预删除节点：<br>e.next = e.previous = null;<br>e.element = null;<br>交给gc完成资源回收，删除操作结束。<br>与ArrayList比较而言，LinkedList的删除动作不需要“移动”很多数据，从而效率更高。</p>
+<h2 id="八、数据获取get"><a href="#八、数据获取get" class="headerlink" title="八、数据获取get()"></a>八、数据获取get()</h2><p>Get(int)方法的实现在remove(int)中已经涉及过了。首先判断位置信息是否合法（大于等于0，小于当前LinkedList实例的Size），然后遍历到具体位置，获得节点的业务数据（element）并返回。<br>注意：为了提高效率，需要根据获取的位置判断是从头还是从尾开始遍历。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 获取双向链表中指定位置的节点    </span><br><span class="line">    private Entry&lt;E&gt; entry(int index) &#123;    </span><br><span class="line">        if (index &lt; 0 || index &gt;= size)    </span><br><span class="line">            throw new IndexOutOfBoundsException(&quot;Index: &quot;+index+    </span><br><span class="line">                                                &quot;, Size: &quot;+size);    </span><br><span class="line">        Entry&lt;E&gt; e = header;    </span><br><span class="line">        // 获取index处的节点。    </span><br><span class="line">        // 若index &lt; 双向链表长度的1/2,则从前先后查找;    </span><br><span class="line">        // 否则，从后向前查找。    </span><br><span class="line">        if (index &lt; (size &gt;&gt; 1)) &#123;    </span><br><span class="line">            for (int i = 0; i &lt;= index; i++)    </span><br><span class="line">                e = e.next;    </span><br><span class="line">        &#125; else &#123;    </span><br><span class="line">            for (int i = size; i &gt; index; i--)    </span><br><span class="line">                e = e.previous;    </span><br><span class="line">        &#125;    </span><br><span class="line">        return e;    </span><br><span class="line">    &#125;123456789101112131415161718</span><br></pre></td></tr></table></figure>
+<p>注意细节：位运算与直接做除法的区别。先将index与长度size的一半比较，如果index</p>
+<h2 id="九、-清除数据clear"><a href="#九、-清除数据clear" class="headerlink" title="九、 清除数据clear()"></a>九、 清除数据clear()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public void clear() &#123;</span><br><span class="line">      Entry&lt;E&gt; e = header.next;</span><br><span class="line">      // e可以理解为一个移动的“指针”，因为是循环链表，所以回到header的时候说明已经没有节点了</span><br><span class="line">      while (e != header) &#123;</span><br><span class="line">         // 保留e的下一个节点的引用</span><br><span class="line">          Entry&lt;E&gt; next = e.next;</span><br><span class="line">          // 解除节点e对前后节点的引用</span><br><span class="line">         e.next = e.previous = null;</span><br><span class="line">          // 将节点e的内容置空</span><br><span class="line">         e.element = null;</span><br><span class="line">         // 将e移动到下一个节点</span><br><span class="line">         e = next;</span><br><span class="line">  &#125;</span><br><span class="line">     // 将header构造成一个循环链表，同构造方法构造一个空的LinkedList</span><br><span class="line">     header.next = header.previous = header;</span><br><span class="line">     // 修改size</span><br><span class="line">     size = 0;</span><br><span class="line">     modCount++;</span><br><span class="line"> &#125;12345678910111213141516171819</span><br></pre></td></tr></table></figure>
+<h2 id="十、数据包含-contains-Object-o"><a href="#十、数据包含-contains-Object-o" class="headerlink" title="十、数据包含 contains(Object o)"></a>十、数据包含 contains(Object o)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public boolean contains(Object o) &#123;</span><br><span class="line">     return indexOf(o) != -1;</span><br><span class="line"> &#125;</span><br><span class="line"> // 从前向后查找，返回“值为对象(o)的节点对应的索引”  不存在就返回-1 </span><br><span class="line"> public int indexOf(Object o) &#123;</span><br><span class="line">      int index = 0;</span><br><span class="line">      if (o==null) &#123;</span><br><span class="line">          for (Entry e = header.next; e != header; e = e.next) &#123;</span><br><span class="line">              if (e.element==null)</span><br><span class="line">                  return index;</span><br><span class="line">              index++;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">         for (Entry e = header.next; e != header; e = e.next) &#123;</span><br><span class="line">             if (o.equals(e.element))</span><br><span class="line">                 return index;</span><br><span class="line">             index++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">     return -1;</span><br><span class="line"> &#125;123456789101112131415161718192021</span><br></pre></td></tr></table></figure>
+<p>indexOf(Object o)判断o链表中是否存在节点的element和o相等，若相等则返回该节点在链表中的索引位置，若不存在则放回-1。<br>contains(Object o)方法通过判断indexOf(Object o)方法返回的值是否是-1来判断链表中是否包含对象o。</p>
+<h2 id="十一、数据复制clone-与toArray"><a href="#十一、数据复制clone-与toArray" class="headerlink" title="十一、数据复制clone()与toArray()"></a>十一、数据复制clone()与toArray()</h2><p>clone()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public Object clone() &#123;</span><br><span class="line">      LinkedList&lt;E&gt; clone = null;</span><br><span class="line">      try &#123;</span><br><span class="line">          clone = (LinkedList&lt;E&gt;) super.clone();</span><br><span class="line">      &#125; catch (CloneNotSupportedException e) &#123;</span><br><span class="line">          throw new InternalError();</span><br><span class="line">    &#125;</span><br><span class="line">      clone.header = new Entry&lt;E&gt;(null, null, null);</span><br><span class="line">      clone.header.next = clone.header.previous = clone.header;</span><br><span class="line">     clone.size = 0;</span><br><span class="line">     clone.modCount = 0;</span><br><span class="line">     for (Entry&lt;E&gt; e = header.next; e != header; e = e.next)</span><br><span class="line">        clone.add(e.element);</span><br><span class="line">     return clone;</span><br><span class="line"> &#125;123456789101112131415</span><br></pre></td></tr></table></figure>
+<p>调用父类的clone()方法初始化对象链表clone，将clone构造成一个空的双向循环链表，之后将header的下一个节点开始将逐个节点添加到clone中。最后返回克隆的clone对象。<br>toArray()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public Object[] toArray() &#123;</span><br><span class="line">     Object[] result = new Object[size];</span><br><span class="line">     int i = 0;</span><br><span class="line">     for (Entry&lt;E&gt; e = header.next; e != header; e = e.next)</span><br><span class="line">         result[i++] = e.element;</span><br><span class="line">     return result;</span><br><span class="line"> &#125;1234567</span><br></pre></td></tr></table></figure>
+<p>创建大小和LinkedList相等的数组result，遍历链表，将每个节点的元素element复制到数组中，返回数组。<br>toArray(T[] a)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public &lt;T&gt; T[] toArray(T[] a) &#123;</span><br><span class="line">      if (a.length &lt; size)</span><br><span class="line">          a = (T[])java.lang.reflect.Array.newInstance(</span><br><span class="line">                                 a.getClass().getComponentType(), size);</span><br><span class="line">      int i = 0;</span><br><span class="line">      Object[] result = a;</span><br><span class="line">      for (Entry&lt;E&gt; e = header.next; e != header; e = e.next)</span><br><span class="line">          result[i++] = e.element;</span><br><span class="line">      if (a.length &gt; size)</span><br><span class="line">         a[size] = null;</span><br><span class="line">     return a;</span><br><span class="line"> &#125;123456789101112</span><br></pre></td></tr></table></figure>
+<p>先判断出入的数组a的大小是否足够，若大小不够则拓展。这里用到了发射的方法，重新实例化了一个大小为size的数组。之后将数组a赋值给数组result，遍历链表向result中添加的元素。最后判断数组a的长度是否大于size，若大于则将size位置的内容设置为null。返回a。<br>从代码中可以看出，数组a的length小于等于size时，a中所有元素被覆盖，被拓展来的空间存储的内容都是null；若数组a的length的length大于size，则0至size-1位置的内容被覆盖，size位置的元素被设置为null，size之后的元素不变。<br>为什么不直接对数组a进行操作，要将a赋值给result数组之后对result数组进行操作？</p>
+<h2 id="十二、遍历数据：Iterator"><a href="#十二、遍历数据：Iterator" class="headerlink" title="十二、遍历数据：Iterator()"></a>十二、遍历数据：Iterator()</h2><p>LinkedList的Iterator<br>除了Entry，LinkedList还有一个内部类：ListItr。<br>ListItr实现了ListIterator接口，可知它是一个迭代器，通过它可以遍历修改LinkedList。<br>在LinkedList中提供了获取ListItr对象的方法：listIterator(int index)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public ListIterator&lt;E&gt; listIterator(int index) &#123;</span><br><span class="line">    return new ListItr(index);</span><br><span class="line">&#125;123</span><br></pre></td></tr></table></figure>
+<p>该方法只是简单的返回了一个ListItr对象。<br>LinkedList中还有通过集成获得的listIterator()方法，该方法只是调用了listIterator(int index)并且传入0。</p>
+<p>十三、</p>
+
+      
+    </div>
+    
+    
+    
+	
+	<div>
+  
+    ﻿<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.png" alt="郭 琪 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/04/链表的原理总结/" rel="next" title="链表的原理总结">
+                <i class="fa fa-chevron-left"></i> 链表的原理总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        ﻿ <!--MOB SHARE BEGIN-->
+                                <div class="-mob-share-ui-button -mob-share-open">分享</div>
+                                <div class="-mob-share-ui" style="display: none">
+                                    <ul class="-mob-share-list">
+                                        <li class="-mob-share-weibo"><p>新浪微博</p></li>
+                                        <li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+                                        <li class="-mob-share-qzone"><p>QQ空间</p></li>
+                                        <li class="-mob-share-qq"><p>QQ好友</p></li>
+                                        <li class="-mob-share-weixin"><p>微信</p></li>
+                                        <li class="-mob-share-douban"><p>豆瓣</p></li>
+                                        <li class="-mob-share-renren"><p>人人网</p></li>
+                                        <li class="-mob-share-kaixin"><p>开心网</p></li>
+                                        <li class="-mob-share-facebook"><p>Facebook</p></li>
+                                        <li class="-mob-share-twitter"><p>Twitter</p></li>
+                                        <li class="-mob-share-pocket"><p>Pocket</p></li>
+                                        <li class="-mob-share-google"><p>Google+</p></li>
+                                        <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+                                        <li class="-mob-share-mingdao"><p>明道</p></li>
+                                        <li class="-mob-share-pengyou"><p>朋友网</p></li>
+                                        <li class="-mob-share-tumblr"><p>Tumblr</p></li>
+                                        <li class="-mob-share-instapaper"><p>Instapaper</p></li>
+                                        <li class="-mob-share-linkedin"><p>LinkedIn</p></li>
+                                    </ul>
+                                    <div class="-mob-share-close">取消</div>
+                                </div>
+                                <div class="-mob-share-ui-bg"></div>
+                                <script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=25e1879146e04"></script>
+                                <!--MOB SHARE END-->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjU4Ny8xMzEyMg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="郭 琪" />
+            
+              <p class="site-author-name" itemprop="name">郭 琪</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/guoqick" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:guoqi303@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/6293906909" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-globe"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/gqhpstar/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/2cd89e69f92a" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.imooc.com/" title="慕课网" target="_blank">慕课网</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.csdn.net/" title="CSDN官方" target="_blank">CSDN官方</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、LinkedList实现原理概述"><span class="nav-number">1.</span> <span class="nav-text">一、LinkedList实现原理概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、LinkedList类定义"><span class="nav-number">2.</span> <span class="nav-text">二、LinkedList类定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、LinkedList数据结构原理"><span class="nav-number">3.</span> <span class="nav-text">三、LinkedList数据结构原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、私有属性"><span class="nav-number">4.</span> <span class="nav-text">四、私有属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、构造方法"><span class="nav-number">5.</span> <span class="nav-text">五、构造方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、元素添加"><span class="nav-number">6.</span> <span class="nav-text">六、元素添加</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、删除数据remove"><span class="nav-number">7.</span> <span class="nav-text">七、删除数据remove()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、数据获取get"><span class="nav-number">8.</span> <span class="nav-text">八、数据获取get()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、-清除数据clear"><span class="nav-number">9.</span> <span class="nav-text">九、 清除数据clear()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、数据包含-contains-Object-o"><span class="nav-number">10.</span> <span class="nav-text">十、数据包含 contains(Object o)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十一、数据复制clone-与toArray"><span class="nav-number">11.</span> <span class="nav-text">十一、数据复制clone()与toArray()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十二、遍历数据：Iterator"><span class="nav-number">12.</span> <span class="nav-text">十二、遍历数据：Iterator()</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">郭 琪</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
