@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-05T11:42:12.029Z</updated>
+  <updated>2018-06-05T11:43:32.104Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HashSet学习笔记</title>
+    <link href="http://yoursite.com/2018/06/05/HashSet%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2018/06/05/HashSet学习笔记/</id>
+    <published>2018-06-05T11:45:43.802Z</published>
+    <updated>2018-06-05T11:43:32.104Z</updated>
+    
+    <content type="html"><![CDATA[<p>上一篇详细总结了HashMap的实现过程，对于HashSet而言，它是基于HashMap来实现的，底层采用HashMap来保存元素。所以如果对HashMap比较熟悉，那么HashSet的原理应该很好理解!</p><p> 一.HsahSet概述</p><p>HashSet实现Set接口，由哈希表（实际上是一个HashMap实例）支持。它不保证set 的迭代顺序；特别是它不保证该顺序恒久不变。此类允许使用null元素。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class HashSet&lt;E&gt;  </span><br><span class="line">    extends AbstractSet&lt;E&gt;  </span><br><span class="line">    implements Set&lt;E&gt;, Cloneable, java.io.Serializable  123</span><br></pre></td></tr></table></figure><p>HashSet继承AbstractSet类，实现Set、Cloneable、Serializable接口。其中AbstractSet提供 Set 接口的骨干实现，从而最大限度地减少了实现此接口所需的工作。Set接口是一种不包括重复元素的Collection，它维持它自己的内部排序，所以随机访问没有任何意义。<br><strong>基本属性：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 底层使用HashMap来保存HashSet中所有元素。</span><br><span class="line">    private transient HashMap&lt;E, Object&gt; map;</span><br><span class="line"></span><br><span class="line">    // 定义一个虚拟的Object对象作为HashMap的value，将此对象定义为static final。</span><br><span class="line">    private static final Object PRESENT = new Object();12345</span><br></pre></td></tr></table></figure><p><strong>构造函数：</strong><br>从构造函数中可以看出HashSet所有的构造都是构造出一个新的HashMap，其中最后一个构造函数，为包访问权限是不对外公开，仅仅只在使用LinkedHashSet时才会发生作用。</p><h2 id="二-HsahSet实现"><a href="#二-HsahSet实现" class="headerlink" title="二.HsahSet实现"></a>二.HsahSet实现</h2><p>因为HashSet是基于HashMap，所以对于HashSet，其方法的实现过程是非常简单的。<br>\1. iterator()<br>iterator()方法 返回对此set中元素进行迭代的迭代器。返回元素的顺序并不是特定的。底层实际调用底层HashMap的keySet来返回所有的key。 可见HashSet中的元素，只是存放在了底层HashMap的key上， value使用一个static final的Object对象标识。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public Iterator&lt;E&gt; iterator() &#123;</span><br><span class="line">        return map.keySet().iterator();</span><br><span class="line">    &#125;123</span><br></pre></td></tr></table></figure><p>2.size()<br>返回此set中的元素的数量（set的容量）。底层实际调用HashMap的size()方法返回Entry的数量，就得到该Set中元素的个数,即HashMap容器的大小。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public int size() &#123;</span><br><span class="line">        return map.size();</span><br><span class="line">    &#125;123</span><br></pre></td></tr></table></figure><p>3.isEmpty()<br>isEmpty()判断HashSet()集合是否为空，如果此set不包含任何元素，则返回true。 底层实际调用HashMap的isEmpty()判断该HashSet是否为空。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public boolean isEmpty() &#123;</span><br><span class="line">        return map.isEmpty();</span><br><span class="line">    &#125;123</span><br></pre></td></tr></table></figure><p>4.contains(Object o)<br>contains()，判断某个元素是否存在于HashSet()中，存在返回true，否则返回false。更加确切的讲应该是要满足这种关系才能返回true：(o==null ? e==null : o.equals(e))。底层调用containsKey判断HashMap的key值是否为空。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public boolean contains(Object o) &#123;</span><br><span class="line">        return map.containsKey(o);</span><br><span class="line">    &#125;123</span><br></pre></td></tr></table></figure><p>5.add()<br>add()如果此 set 中尚未包含指定元素，则添加指定元素。如果此Set没有包含满足(e==null ? e2==null : e.equals(e2)) 的e2时，则将e2添加到Set中，否则不添加且返回false。由于底层使用HashMap的put方法将key = e，value=PRESENT构建成key-value键值对，当此e存在于HashMap的key中，则value将会覆盖原有value，但是key保持不变，所以如果将一个已经存在的e元素添加中HashSet中，新添加的元素是不会保存到HashMap中，所以这就满足了HashSet中元素不会重复的特性。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public boolean add(E e) &#123;</span><br><span class="line">        return map.put(e, PRESENT) == null;</span><br><span class="line">    &#125;123</span><br></pre></td></tr></table></figure><p>6.remove()<br>remove()如果指定元素存在于此 set 中，则将其移除。底层使用HashMap的remove方法删除指定的Entry。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public boolean remove(Object o) &#123;</span><br><span class="line">        return map.remove(o) == PRESENT;</span><br><span class="line">    &#125;123</span><br></pre></td></tr></table></figure><p>7.clear()<br>clear()从此 set 中移除所有元素。底层调用HashMap的clear方法清除所有的Entry。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public void clear() &#123;</span><br><span class="line">        map.clear();</span><br><span class="line">    &#125;123</span><br></pre></td></tr></table></figure><p>8.clone()<br>底层实际调用HashMap的clone()方法，获取HashMap的浅表副本,并没有复制这些元素本身。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public Object clone() &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            HashSet&lt;E&gt; newSet = (HashSet&lt;E&gt;) super.clone();</span><br><span class="line">            newSet.map = (HashMap&lt;E, Object&gt;) map.clone();</span><br><span class="line">            return newSet;</span><br><span class="line">        &#125; catch (CloneNotSupportedException e) &#123;</span><br><span class="line">            throw new InternalError();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;上一篇详细总结了HashMap的实现过程，对于HashSet而言，它是基于HashMap来实现的，底层采用HashMap来保存元素。所以如果对HashMap比较熟悉，那么HashSet的原理应该很好理解!&lt;/p&gt;
+&lt;p&gt; 一.HsahSet概述&lt;/p&gt;
+&lt;p&gt;HashSet
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>HashTable学习笔记</title>
