@@ -81,17 +81,20 @@
 
 
 
-<meta name="description" content="分享一下总结的去年做过的一个传统ssh项目所用到的一些技术点，准备面试换工作的小伙伴们可以看看。 1.什么是git，和svn的区别  git是一个分布式的版本控制系统,一般用于代码的版本控制,类似于svn,区别在于git可以在建立本地仓库，这样代码可以提交到本地，这样可以断网提交，可以查找本地的代码提交历史记录。git有像github,码云这样的代码托管网站(我们项目就放在github上),下代码">
+<meta name="description" content="常用排序算法的复杂度分析整理    具体分析如下： 冒泡排序（BubbleSort）冒泡排序是最慢的排序算法。在实际运用中它是效率最低的算法。它通过一趟又一趟地比较数组中的每一个元素，使较大的数据下沉，较小的数据上升。它是O(n^2)的算法。 步骤：（1）比较相邻的元素。如果第一个比第二个大，就交换他们两个。（2）对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SSH项目技术点总结">
-<meta property="og:url" content="http://yoursite.com/2018/06/05/SSH项目技术点总结/index.html">
+<meta property="og:title" content="各种排序算法学习总结">
+<meta property="og:url" content="http://yoursite.com/2018/06/09/各种排序算法学习总结/index.html">
 <meta property="og:site_name" content="郭琪的小站">
-<meta property="og:description" content="分享一下总结的去年做过的一个传统ssh项目所用到的一些技术点，准备面试换工作的小伙伴们可以看看。 1.什么是git，和svn的区别  git是一个分布式的版本控制系统,一般用于代码的版本控制,类似于svn,区别在于git可以在建立本地仓库，这样代码可以提交到本地，这样可以断网提交，可以查找本地的代码提交历史记录。git有像github,码云这样的代码托管网站(我们项目就放在github上),下代码">
+<meta property="og:description" content="常用排序算法的复杂度分析整理    具体分析如下： 冒泡排序（BubbleSort）冒泡排序是最慢的排序算法。在实际运用中它是效率最低的算法。它通过一趟又一趟地比较数组中的每一个元素，使较大的数据下沉，较小的数据上升。它是O(n^2)的算法。 步骤：（1）比较相邻的元素。如果第一个比第二个大，就交换他们两个。（2）对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-05T08:50:52.523Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-c8001fdc2ad9a1c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://img-blog.csdn.net/20160427185527311">
+<meta property="og:updated_time" content="2018-06-09T13:45:34.187Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SSH项目技术点总结">
-<meta name="twitter:description" content="分享一下总结的去年做过的一个传统ssh项目所用到的一些技术点，准备面试换工作的小伙伴们可以看看。 1.什么是git，和svn的区别  git是一个分布式的版本控制系统,一般用于代码的版本控制,类似于svn,区别在于git可以在建立本地仓库，这样代码可以提交到本地，这样可以断网提交，可以查找本地的代码提交历史记录。git有像github,码云这样的代码托管网站(我们项目就放在github上),下代码">
+<meta name="twitter:title" content="各种排序算法学习总结">
+<meta name="twitter:description" content="常用排序算法的复杂度分析整理    具体分析如下： 冒泡排序（BubbleSort）冒泡排序是最慢的排序算法。在实际运用中它是效率最低的算法。它通过一趟又一趟地比较数组中的每一个元素，使较大的数据下沉，较小的数据上升。它是O(n^2)的算法。 步骤：（1）比较相邻的元素。如果第一个比第二个大，就交换他们两个。（2）对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/12434140-c8001fdc2ad9a1c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -121,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/05/SSH项目技术点总结/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/09/各种排序算法学习总结/"/>
 
 
 
 
 
-  <title>SSH项目技术点总结 | 郭琪的小站</title>
+  <title>各种排序算法学习总结 | 郭琪的小站</title>
   
 
 
@@ -275,7 +278,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/05/SSH项目技术点总结/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/09/各种排序算法学习总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="郭 琪">
@@ -292,7 +295,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SSH项目技术点总结</h1>
+          <h1 class="post-title" itemprop="name headline">各种排序算法学习总结</h1>
         
 
         <div class="post-meta">
@@ -304,8 +307,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-05T16:36:47+08:00">
-                2018-06-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-09T21:45:49+08:00">
+                2018-06-09
               </time>
             
 
@@ -347,88 +350,31 @@
       
 
       
-        <p>分享一下总结的去年做过的一个传统ssh项目所用到的一些技术点，准备面试换工作的小伙伴们可以看看。</p>
-<p><strong>1.什么是git，和svn的区别</strong></p>
-<blockquote>
-<p>git是一个分布式的版本控制系统,一般用于代码的版本控制,类似于svn,区别在于git可以在建立本地仓库，这样代码可以提交到本地，这样可以断网提交，可以查找本地的代码提交历史记录。git有像github,码云这样的代码托管网站(我们项目就放在github上),下代码很方便。</p>
-</blockquote>
-<p><strong>2.什么是maven, maven中的依赖范围，依赖传递是什么意思</strong></p>
-<blockquote>
-<p>maven是一个软件项目管理工具,一般用它的配置文件pom来加载jar包,也可以用来编译工程发布工程<br>安装一个外包maven并整合到eclipse中，通过配置文件指定jar包的本地仓库，私服，和中央仓库，镜像等。<br>通过maven引入jar包，也通过maven将工程发布出去给其它工程引用。<br>依赖范围是用来控制打jar包的范围。<br>compile 编译、测试、运行<br>provided 编译、和测试有效<br>runtime：测试、运行有效。<br>test：只是测试有效，只在单元测试类中用。<br>依赖传递 就近原则<br>坐标 </p>
-</blockquote>
-<p><strong>3.spring的原理，它是如何整合其它框架的</strong></p>
-<blockquote>
-<p>AOP(面向切面编程) 对指定的业务进行统一的增强，如事务处理，日志记录，性能统计，将这些代码从业务逻辑代码中抽取出来。<br>IOC(控制反转)DI(依赖注入)<br>(1)项目引入的bean对象不用我们从bean工厂取，而是通过sring里的配置文件得到<br>（2）web层调service,service调dao都是通过加注解的方式，让spring注入进来，不用我们new出来<br>spring一般通过配置文件将其它框架整合进来，在配置文件中配置bean工厂或模板和相关的属性，这样我们就不需要自己new出来bean工厂而是由spring统一得到</p>
-</blockquote>
-<p><strong>4.什么是模型驱动，什么是领域驱动建模，有什么好处</strong></p>
-<blockquote>
-<p>模型驱动是使用javaBean对象来封装请求参数，在整个MVC流程中可以直接使用这个对象,用起来方便（对比属性驱动，对比servlet中request.getParameter）</p>
-<p>领域驱动建模是对业务对象的的抽取，就程序来说领域模型就是java里面的实体bean(domain),我们将这些实体bean抽取出来，通过maven配置引入，不同的工程就都可以使用这些模型。</p>
-</blockquote>
-<p><strong>5.什么是jpa,springdatajpa和hibernate之间的关系</strong></p>
-<blockquote>
-<p>jpa是sun公司定义的一套数据持久层的标准，是一种规范 hibernate是具体的技术实现 还有别的技术（Toplink等）但不流行了。类似于接口和实现类的关系<br>jpa定义的是一系列的接口和注解。Spring Data JPA 是在JPA规范的基础下提供了Repository层的实现<br>好处 用jpa方式 开发者面向JPA规范的接口 不必关注底层的JPA实现 哪种好用哪个 不用再去学习一套新的技术<br>减少学习成本。</p>
-</blockquote>
-<p><strong>6.用springdatajpa有什么好处,为什么</strong></p>
-<blockquote>
-<p>对于Oracle数据库，我们自己编写的dao 继承了jparepository接口 在具体实用时由 sprinrg容器给我们注入进一个实现类，<br>使用springdatajpa抽象了具体的数据库操作，项目中用的redis,elasticsearch和ehcache都可以通过springdatajpa来操作</p>
-</blockquote>
-<p><strong>7.webservice是干什么的</strong></p>
-<blockquote>
-<p>webservice就是多项目，多平台之间进行方法调用的一种技术，现在工作中用cxf框架通过spring配置进项目来，用起来很简单的，只要在普通的服务上加上对应的注解就可以发布出去了。<br>webservice分成两种方式，一种是传统的基于sopa协议的方式，一种是rest的方式，传统的ws的方式不太常用了,我们项目中是用的就是rest的方式</p>
-</blockquote>
-<p><strong>8.webservice的两种实现方式rs和ws的区别</strong></p>
-<blockquote>
-<p>rs和ws的最主要的是rest是用的http协议，传统ws用的是soap协议，一般ws用的是xml格式而rs用的多是json格式，如果是完全基于restful风格，那么发布的服务就是一个资源,具体的增删改查方式是通过请求方式post,delete,put,get的方式来确定的。<br>rs更方便，更流行一些，因为它是返回json格式 访问服务的客户端只用通过工具webClient或者httpclient就可以访问了。</p>
-</blockquote>
-<p><strong>9.分页查询的参数，及查询后的数据是如何返回的</strong></p>
-<blockquote>
-<p>请求参数页码，每页记录数<br>返回总记录数和当前页数据记录 一般返回的当前页数据是一个list集合, 我们要把list和总记录数封装到一个对象中返回前端页面</p>
-</blockquote>
-<p><strong>10.AngularJS的几个特性,什么是路由</strong></p>
-<blockquote>
-<p>MVC,（模仿后台框架的MVC Controller就是js代码，Model）<br>双向数据绑定(更新模型，视图会自动更新，更新视图，模型会自动更新)<br>模块化设计<br>官方提供的模块 ng、ngRoute<br>用户自定义的模块 angular.module(‘模块名’,[ ])<br>angularJs实现单页面多视图的页面跳转效果 类似于url跳转</p>
-</blockquote>
-<p><strong>11.什么是消息队列(mq) 消息服务器的应用场景和队列的两种方式</strong></p>
-<blockquote>
-<p>消息队列中间件是分布式系统中的一种的组件，主要解决应用服务之间耦合,异步消息，流量削锋,等问题实现提高系统性能的一种架构<br>2、ActiveMQ 应用场景分析<br>1）用户注册，重点用户信息数据库保存，发短信、发邮件，增加业务处理复杂度，这时候用MQ，将发短信、发邮箱，通知MQ，由另外服务平台完成<br>2）搜索平台、缓存平台<br>查询数据，建立缓存、索引，不从数据库查询，从缓存或者索引库查询<br>当增加、修改，删除数据时，发送消息给MQ，缓存平台、索引平台从MQ获取到这个消息，更新缓存或者索引<br>1）Queue队列，生产者生产了一个消息，只能由一个消费者进行消费<br>2）Topic话题，生产者生产了一个消息，可以由多个消费者进行消费</p>
-</blockquote>
-<p><strong>12.什么是页面静态化，如何实现,有什么好处</strong></p>
-<blockquote>
-<p>Freemarker</p>
-<p>将动态数据访问，生成为一个静态html页面，提高查询效率<br>页面静态化，其实就是将动态生成的jsp页面，变成静态的HTML页面，让用户直接访问。有一下几方面好处：<br>1，首先就是访问速度，不需要去访问数据库，或者缓存来获取哪些数据，浏览器直接加载渲染html页即可。所以可以大大的提高访问效率；<br>2，从网站优化来分析，搜索引擎更喜欢静态的网页，静态网页与动态网页相比，搜索引擎更喜欢静的，更便于抓取，搜索引擎SEO排名更容易提高。<br>3，从安全角度讲，静态网页不宜遭到黑客攻击，如果黑客不知道你网站的后台、网站采用程序、数据库的地址，静态网页， 更不容易受到黑客的攻击。<br>4，从网站稳定性来讲，如果程序、数据库出了问题，会直接影响网站的访问，而静态网页就避免了如此情况，不会因为程序等，而损失网站数据，影响正常打开，损失用户体验，影响网站信任度。<br>注意问题：<br>1，随着项目的扩大，静态html页面将会不断的增大，增多，所以要注意管理这些静态页面。例如路径的管理,及时更新的管理等等。<br>2，有些页面并不一定非要来静态化，但是为了避免地址暴露过多的信息，也可以用URL伪静态，使页面看起来就像静态页面一样，原理只是一个Filter。</p>
-</blockquote>
-<p><strong>13.Quartz是什么，应用场景</strong></p>
-<blockquote>
-<p>定时任务框架<br>用户解冻：比如用户在登录的时候，连续输错3次密码后，系统会将该用户冻结，不再允许该用户登录系统，等到了晚上零晨时分，再为所有被冻结的用户解冻，这样，用户在第二天又可以正常登录系统<br>抓取日志:比如需要在每天凌晨时候，分析一次前一天的日志信息<br>sheduler</p>
-<p>job jobFactory</p>
-<p>trigger</p>
-</blockquote>
-<p><strong>14.elasticserach是什么，原理, 如何使用，和lucene的关系</strong></p>
-<blockquote>
-<p>1、Lucene就是一套全文检索编程API，基于Lucene对数据建立索引，进行查询。<br>2、现代企业开发中，更常用的是solr搜索服务器和ElasticSearch搜索服务器。<br>主要概念<br>索引 文档 文档类型 映射<br>1）索引对象（数据存在哪？）：存储数据的表结构，任何搜索数据，存放在索引对象上<br>2）映射（数据怎么存？）：数据如何存放到索引对象上，需要有一个映射配置，数据类型、是否存储、是否分词…<br>3）文档（存什么数据？）：一条数据记录，存在索引对象上<br>4）文档类型（数据有哪些类型？）：一个索引对象，存放多种类型数据，数据用文档类型进行标识<br>编程步骤</p>
-<p>1）建立索引对象</p>
-<p>2）建立映射</p>
-<p>3）存储数据【文档】</p>
-<p>4）指定文档类型进行搜索数据【文档】</p>
-<p>5）查询数据【文档】</p>
-</blockquote>
-<p><strong>15.缓存的原理，redis和ehcache的比较</strong></p>
-<blockquote>
-<p>缓存可以提高查询性能，对同一批数据进行多次查询时，第一次查询走数据库，查询数据后，将数据保存在内存中，第二次以后查询可以直接从内存获取数据，而不需要和数据库进行交互.<br>最简单的缓存实现可以用一个map实现，map的键存查询语句，map的值存对应查询到的数据。<br>ehcahe和redis的比较<br>ehcache直接在本机jvm虚拟机中缓存，速度快，效率高，本机速度自然是最快的，但重启web容器会一起消亡掉，只能当前web应用访问操作, 做缓存共享麻烦，集群分布式应用不方便。ehcahe可做hibernate的二级缓存。<br>redis是通过socket访问到缓存服务，效率比ecache低，比数据库要快很多，处理集群和分布式缓存方便，有成熟的方案。<br>如果是单个应用或者对缓存访问要求很高的应用，用ehcache。如果是大型系统，存在缓存共享、分布式部署、缓存内容很大的，建议用redis。<br>ehcache也有缓存共享方案，不过是通过RMI或者Jgroup多播方式进行广播缓存通知更新，缓存共享复杂，维护不方便；简单的共享可以，但是涉及到缓存恢复，大数据缓存，则不合适。总之ehcache能干的活redis都能干，redis能干的，ehcache不一定。</p>
-</blockquote>
-<p><strong>16.权限控制的几种方式, Shiro如何实现权限控制</strong></p>
-<blockquote>
-<p>第一种：URL级别粗粒度权限控制（重点）<br>配置web.xml的shiroFilter拦截 /<em><br>在spring的applicationContext</em>.xml配置文件中配置同名的bean，配置filterChainDefinitions拦截控制规则<br>xxx.html<em>=anon（未登录可以访问）<br>xxx.html</em>=authc（必须登录才能访问）<br>xxx.html<em>=perms[权限]（需要特定权限才能访问 ）<br>xxx.html</em>=roles[角色]（需要特定角色才能访问）<br>第二种：方法级别细粒度权限控制<br>在spring的applicationContext*.xml配置spring aop对spring管理bean对象开启shiro注解支持<br>@RequiresPermissions(权限) 需要特定权限才能访问<br>@RequiresRoles(角色) 需要特定角色才能访问<br>@RequiresAuthentication 需要认证才能访问<br>Shiro执行流程<br>应用程序—&gt;Subject—&gt;SecurityManager—&gt;Realm—&gt;安全数据</p>
-</blockquote>
-<p><strong>17.延迟加载是什么问题，如何解决</strong></p>
-<blockquote>
-<p>查询数据时当对象中有一对多的关联属性 当要在view层获取数据时比如将对象转化成json，由于session已关闭造成无法读取数据<br>要看实际业务需不需要展示多方数据<br>如果不需要直接加载<br>则在相关属性的get方法上加@JSON(serialize=false)注解<br>如果需要立即加载则有三种方式 效率由底到高<br>1 service中手动查询出来<br>2 加注解 @OneToMany(fetch=FetchType.EAGER)<br>3 配OpenEntityManagerInView filter</p>
-</blockquote>
-<p><strong>18.什么是报表,如何生成报表</strong></p>
-<blockquote>
-<p>报表就是数据的呈现,对于程序员来说就是复杂SQL查询语句，可以生成excel(poi)格式，pdf(ireport)格式或前端highcharts生成图表</p>
-</blockquote>
+        <p>常用排序算法的复杂度分析整理  </p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-c8001fdc2ad9a1c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>具体分析如下：</p>
+<h3 id="冒泡排序（BubbleSort）"><a href="#冒泡排序（BubbleSort）" class="headerlink" title="冒泡排序（BubbleSort）"></a>冒泡排序（BubbleSort）</h3><p>冒泡排序是最慢的排序算法。在实际运用中它是效率最低的算法。它通过一趟又一趟地比较数组中的每一个元素，使较大的数据下沉，较小的数据上升。它是O(n^2)的算法。</p>
+<p>步骤：<br>（1）比较相邻的元素。如果第一个比第二个大，就交换他们两个。<br>（2）对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。<br>（3）针对所有的元素重复以上的步骤，除了最后一个。<br>（4）持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</p>
+<p>详细原理及实现参照：<a href="http://guoqick.cn/2018/06/09/冒泡排序原理%20/#more" target="_blank" rel="noopener"><strong>冒泡排序原理及Java实现</strong></a></p>
+<h3 id="选择排序（SelectSort）"><a href="#选择排序（SelectSort）" class="headerlink" title="选择排序（SelectSort）"></a>选择排序（SelectSort）</h3><p>选择排序(Selection sort)是一种简单直观的排序算法。它的工作原理如下。首先在未排序序列中找到最小元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小元素，然后放到排序序列末尾。以此类推，直到所有元素均排序完毕。<br>这种排序方法效率是 O(n2)。在实际应用中处于和冒泡排序基本相同的地位。它们只是排序算法发展的初级阶段，在实际中使用较少。</p>
+<p>详细原理及实现参照：<a href="http://guoqick.cn/2018/06/09/选择排序原理/#more" target="_blank" rel="noopener"><strong>选择排序原理及Java实现</strong></a></p>
+<h3 id="插入排序（InsertSort）"><a href="#插入排序（InsertSort）" class="headerlink" title="插入排序（InsertSort）"></a>插入排序（InsertSort）</h3><p>插入排序（Insertion Sort）的算法描述是一种简单直观的排序算法。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。插入排序在实现上，通常采用in-place排序（即只需用到O(1)的额外空间的排序），因而在从后向前扫描过程中，需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间。<br>插入排序是对冒泡排序的改进。它比冒泡排序快2倍。一般不用在数据大于1000的场合下使用插入排序，或者重复排序超过200数据项的序列。<br>步骤：<br>（1）从第一个元素开始，该元素可以认为已经被排序<br>（2）取出下一个元素，在已经排序的元素序列中从后向前扫描<br>（3）如果该元素（已排序）大于新元素，将该元素移到下一位置<br>（4）重复步骤3，直到找到已排序的元素小于或者等于新元素的位置<br>将新元素插入到该位置中<br>（4）重复步骤2</p>
+<p>详细原理及实现参照：<a href="http://guoqick.cn/2018/06/09/插入排序原理/#more" target="_blank" rel="noopener"><strong>插入排序原理及Java实现</strong></a></p>
+<h3 id="Shell排序（ShellSort）"><a href="#Shell排序（ShellSort）" class="headerlink" title="Shell排序（ShellSort）"></a>Shell排序（ShellSort）</h3><p>希尔排序，也称递减增量排序算法，是插入排序的一种高速而稳定的改进版本。希尔排序是基于插入排序的以下两点性质而提出改进方法的：<br>（1）插入排序在对几乎已经排好序的数据操作时， 效率高， 即可以达到线性排序的效率<br>（2）但插入排序一般来说是低效的， 因为插入排序每次只能将数据移动一位</p>
+<p>Shell排序通过将数据分成不同的组，先对每一组进行排序，然后再对所有的元素进行一次插入排序，以减少数据交换和移动的次数。平均效率是O(nlogn)。其中分组的合理性会对算法产生重要的影响。现在多用D.E.Knuth的分组方法。</p>
+<p>Shell排序比冒泡排序快5倍，比插入排序大致快2倍。Shell排序比起QuickSort，MergeSort，HeapSort慢很多。但是它相对比较简单，它适合于数据量在5000以下并且速度并不是特别重要的场合。它对于数据量较小的数列重复排序是非常好的。</p>
+<p>详细原理及实现参照：<a href="http://guoqick.cn/2018/06/09/希尔排序原理/#more" target="_blank" rel="noopener"><strong>希尔排序原理及Java实现</strong></a></p>
+<h3 id="堆排序（HeapSort）"><a href="#堆排序（HeapSort）" class="headerlink" title="堆排序（HeapSort）"></a>堆排序（HeapSort）</h3><p>堆排序适合于数据量非常大的场合（百万数据）。</p>
+<p>堆排序不需要大量的递归或者多维的暂存数组。这对于数据量非常巨大的序列是合适的。比如超过数百万条记录，因为快速排序，归并排序都使用递归来设计算法，在数据量非常大的时候，可能会发生堆栈溢出错误。</p>
+<p>堆排序会将所有的数据建成一个堆，最大的数据在堆顶，然后将堆顶数据和序列的最后一个数据交换。接下来再次重建堆，交换数据，依次下去，就可以排序所有的数据。</p>
+<p>详细原理及实现参照：<a href="http://guoqick.cn/2018/06/09/堆排序原理/#more" target="_blank" rel="noopener"><strong>堆排序原理及Java实现</strong></a></p>
+<h3 id="归并排序（MergeSort）"><a href="#归并排序（MergeSort）" class="headerlink" title="归并排序（MergeSort）"></a>归并排序（MergeSort）</h3><p>归并排序（Merge sort，台湾译作：合并排序）是建立在归并操作上的一种有效的排序算法。该算法是采用分治法（Divide and Conquer）的一个非常典型的应用.<br>归并排序先分解要排序的序列，从1分成2，2分成4，依次分解，当分解到只有1个一组的时候，就可以排序这些分组，然后依次合并回原来的序列中，这样就可以排序所有数据。合并排序比堆排序稍微快一点，但是需要比堆排序多一倍的内存空间，因为它需要一个额外的数组。</p>
+<p>步骤：<br>（1）申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列<br>（2）设定两个指针，最初位置分别为两个已经排序序列的起始位置<br>（3）比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到下一位置<br>（4）重复步骤3直到某一指针达到序列尾<br>（5）将另一序列剩下的所有元素直接复制到合并序列尾</p>
+<p>详细原理及实现参照：<a href="http://guoqick.cn/2018/06/09/归并排序原理/#more" target="_blank" rel="noopener"><strong>归并排序原理及Java实现</strong></a></p>
+<h3 id="快速排序（QuickSort）"><a href="#快速排序（QuickSort）" class="headerlink" title="快速排序（QuickSort）"></a>快速排序（QuickSort）</h3><p>快速排序是由东尼·霍尔所发展的一种排序算法。在平均状况下，排序 n 个项目要<em>Ο(n log n)</em>次比较。在最坏状况下则需要<img src="https://img-blog.csdn.net/20160427185527311" alt="Ο(n2)">次比较，但这种状况并不常见。事实上，快速排序通常明显比其他<em>Ο(n log n)</em> 算法更快，因为它的内部循环可以在大部分的架构上很有效率地被实现出来，且在大部分真实世界的数据，可以决定设计的选择，减少所需时间的二次方项之可能性。<br>快速排序是一个就地排序，分而治之，大规模递归的算法。从本质上来说，它是归并排序的就地版本。快速排序可以由下面四步组成。</p>
+<p>（1） 如果不多于1个数据，直接返回。<br>（2） 一般选择序列最左边的值作为支点数据。<br>（3） 将序列分成2部分，一部分都大于支点数据，另外一部分都小于支点数据。<br>（4） 对两边利用递归排序数列。</p>
+<p>快速排序比大部分排序算法都要快。尽管我们可以在某些特殊的情况下写出比快速排序快的算法，但是就通常情况而言，没有比它更快的了。快速排序是递归的，对于内存非常有限的机器来说，它不是一个好的选择。</p>
+<p>详细原理及实现参照：<a href="http://guoqick.cn/2018/06/09/快速排序原理/#more" target="_blank" rel="noopener"><strong>快速排序原理及Java实现</strong></a></p>
 
       
     </div>
@@ -471,8 +417,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/05/angularjs前端页面跳转与参数传递/" rel="next" title="angularjs前端页面跳转与参数传递">
-                <i class="fa fa-chevron-left"></i> angularjs前端页面跳转与参数传递
+              <a href="/2018/06/09/希尔排序原理/" rel="next" title="希尔排序原理">
+                <i class="fa fa-chevron-left"></i> 希尔排序原理
               </a>
             
           </div>
@@ -480,10 +426,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/05/HashMap原理及实现学习总结/" rel="prev" title="HashMap原理及实现学习总结">
-                HashMap原理及实现学习总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -569,8 +511,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -674,6 +625,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序（BubbleSort）"><span class="nav-number">1.</span> <span class="nav-text">冒泡排序（BubbleSort）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择排序（SelectSort）"><span class="nav-number">2.</span> <span class="nav-text">选择排序（SelectSort）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入排序（InsertSort）"><span class="nav-number">3.</span> <span class="nav-text">插入排序（InsertSort）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shell排序（ShellSort）"><span class="nav-number">4.</span> <span class="nav-text">Shell排序（ShellSort）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆排序（HeapSort）"><span class="nav-number">5.</span> <span class="nav-text">堆排序（HeapSort）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并排序（MergeSort）"><span class="nav-number">6.</span> <span class="nav-text">归并排序（MergeSort）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序（QuickSort）"><span class="nav-number">7.</span> <span class="nav-text">快速排序（QuickSort）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
       <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=31048379&auto=1&height=66"></iframe> 
       
