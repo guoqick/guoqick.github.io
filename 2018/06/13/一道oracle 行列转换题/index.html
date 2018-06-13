@@ -88,15 +88,15 @@
 <meta property="og:site_name" content="郭琪的小站">
 <meta property="og:description" content="题目：从员工表查询每年入职员工数，并得到如下效果。  答案如下： 1select * from emp;  12select count(*) num,to_char(hiredate, &amp;apos;yyyy&amp;apos;) hireyear from emp group by to_char(hiredate, &amp;apos;yyyy&amp;apos;);  1234567select sum(num)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="c:/Users/dell/AppData/Local/Temp/1528819460487.png">
-<meta property="og:image" content="c:/Users/dell/AppData/Local/Temp/1528820089820.png">
-<meta property="og:image" content="file:///C:/Users/dell/AppData/Roaming/feiq/RichOle/927074668.bmp">
-<meta property="og:image" content="c:/Users/dell/AppData/Local/Temp/1528820187692.png">
-<meta property="og:updated_time" content="2018-06-12T16:23:57.929Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-0ecc41329fdee89d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-4c5685aadce4b385.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-70b1b175c55ebc36.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-f82005bfe10a5228.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-06-13T09:11:29.221Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一道oracle 行列转换题">
 <meta name="twitter:description" content="题目：从员工表查询每年入职员工数，并得到如下效果。  答案如下： 1select * from emp;  12select count(*) num,to_char(hiredate, &amp;apos;yyyy&amp;apos;) hireyear from emp group by to_char(hiredate, &amp;apos;yyyy&amp;apos;);  1234567select sum(num)">
-<meta name="twitter:image" content="c:/Users/dell/AppData/Local/Temp/1528819460487.png">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/12434140-0ecc41329fdee89d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -353,14 +353,14 @@
 
       
         <p>题目：从员工表查询每年入职员工数，并得到如下效果。</p>
-<p><img src="C:\Users\dell\AppData\Local\Temp\1528819460487.png" alt="1528819460487"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-0ecc41329fdee89d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <p>答案如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from emp;</span><br></pre></td></tr></table></figure>
-<p><img src="C:\Users\dell\AppData\Local\Temp\1528820089820.png" alt="1528820089820"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-4c5685aadce4b385.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select count(*) num,to_char(hiredate, &apos;yyyy&apos;) hireyear </span><br><span class="line">from emp group by to_char(hiredate, &apos;yyyy&apos;);</span><br></pre></td></tr></table></figure>
-<p><img src="file:///C:\Users\dell\AppData\Roaming\feiq\RichOle\927074668.bmp" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-70b1b175c55ebc36.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select sum(num) &quot;Total&quot; ,</span><br><span class="line">max(decode(hireyear,&apos;1980&apos; ,num)) &quot;1980&quot;,</span><br><span class="line">max(decode(hireyear,&apos;1981&apos; ,num)) &quot;1981&quot;,</span><br><span class="line">max(decode(hireyear,&apos;1982&apos; ,num)) &quot;1982&quot;,</span><br><span class="line">max(decode(hireyear,&apos;1987&apos; ,num)) &quot;1987&quot;</span><br><span class="line">from  (select count(*) num,to_char(hiredate, &apos;yyyy&apos;) hireyear </span><br><span class="line">from emp group by to_char(hiredate, &apos;yyyy&apos;)) t</span><br></pre></td></tr></table></figure>
-<p><img src="C:\Users\dell\AppData\Local\Temp\1528820187692.png" alt="1528820187692"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-f82005bfe10a5228.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <p>其中的max用min,avg,sum都可以！！！</p>
 
       
