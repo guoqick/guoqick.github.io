@@ -81,17 +81,36 @@
 
 
 
-<meta name="description" content="上一篇详细总结了HashMap的实现过程，对于HashSet而言，它是基于HashMap来实现的，底层采用HashMap来保存元素。所以如果对HashMap比较熟悉，那么HashSet的原理应该很好理解!  一.HsahSet概述 HashSet实现Set接口，由哈希表（实际上是一个HashMap实例）支持。它不保证set 的迭代顺序；特别是它不保证该顺序恒久不变。此类允许使用null元素。 12">
+<meta name="description" content="1.在IDEA中设置Git，在File–&amp;gt;Setting-&amp;gt;Version Control–&amp;gt;Git–&amp;gt;Path to Git executable选择你的git安装后的git.exe文件，然后点击Test，测试是否设置成功 。  2.在IDEA中设置GitHub，File–&amp;gt;Setting-&amp;gt;Version Control–&amp;gt;GibHub 　　Host：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HashSet学习笔记">
-<meta property="og:url" content="http://yoursite.com/2018/06/05/HashSet学习笔记/index.html">
+<meta property="og:title" content="把idea上的项目上传到Github">
+<meta property="og:url" content="http://yoursite.com/2018/06/17/把idea上的项目上传到Github/index.html">
 <meta property="og:site_name" content="郭琪的小站">
-<meta property="og:description" content="上一篇详细总结了HashMap的实现过程，对于HashSet而言，它是基于HashMap来实现的，底层采用HashMap来保存元素。所以如果对HashMap比较熟悉，那么HashSet的原理应该很好理解!  一.HsahSet概述 HashSet实现Set接口，由哈希表（实际上是一个HashMap实例）支持。它不保证set 的迭代顺序；特别是它不保证该顺序恒久不变。此类允许使用null元素。 12">
+<meta property="og:description" content="1.在IDEA中设置Git，在File–&amp;gt;Setting-&amp;gt;Version Control–&amp;gt;Git–&amp;gt;Path to Git executable选择你的git安装后的git.exe文件，然后点击Test，测试是否设置成功 。  2.在IDEA中设置GitHub，File–&amp;gt;Setting-&amp;gt;Version Control–&amp;gt;GibHub 　　Host：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-05T11:43:32.104Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-3a78234021e6b9ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-5d56dba9107a2dac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-d19322318ba1b192.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-48d195e4e590a02f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-bf2793cf37466b54.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-f45c64c924e10f27.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-72b3da090efa5a67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-8308e764e0c742b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-66bcc33d42367ffe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-745b23bdac20b51c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-01ebb0a620941c4f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-eb051135fb31daf7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-a6872af27837da31.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-82442c45c8d9fd89.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-b56c31f2a50d3073.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-e9b8fa6740793bd1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-15e55f17c0e15c24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-fd347f226a1c447b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-06-17T15:15:54.855Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HashSet学习笔记">
-<meta name="twitter:description" content="上一篇详细总结了HashMap的实现过程，对于HashSet而言，它是基于HashMap来实现的，底层采用HashMap来保存元素。所以如果对HashMap比较熟悉，那么HashSet的原理应该很好理解!  一.HsahSet概述 HashSet实现Set接口，由哈希表（实际上是一个HashMap实例）支持。它不保证set 的迭代顺序；特别是它不保证该顺序恒久不变。此类允许使用null元素。 12">
+<meta name="twitter:title" content="把idea上的项目上传到Github">
+<meta name="twitter:description" content="1.在IDEA中设置Git，在File–&amp;gt;Setting-&amp;gt;Version Control–&amp;gt;Git–&amp;gt;Path to Git executable选择你的git安装后的git.exe文件，然后点击Test，测试是否设置成功 。  2.在IDEA中设置GitHub，File–&amp;gt;Setting-&amp;gt;Version Control–&amp;gt;GibHub 　　Host：">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/12434140-3a78234021e6b9ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -121,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/05/HashSet学习笔记/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/17/把idea上的项目上传到Github/"/>
 
 
 
 
 
-  <title>HashSet学习笔记 | 郭琪的小站</title>
+  <title>把idea上的项目上传到Github | 郭琪的小站</title>
   
 
 
@@ -275,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/05/HashSet学习笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/把idea上的项目上传到Github/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="郭 琪">
@@ -292,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HashSet学习笔记</h1>
+          <h1 class="post-title" itemprop="name headline">把idea上的项目上传到Github</h1>
         
 
         <div class="post-meta">
@@ -304,8 +323,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-05T19:45:43+08:00">
-                2018-06-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-17T23:14:52+08:00">
+                2018-06-17
               </time>
             
 
@@ -347,29 +366,43 @@
       
 
       
-        <p>上一篇详细总结了HashMap的实现过程，对于HashSet而言，它是基于HashMap来实现的，底层采用HashMap来保存元素。所以如果对HashMap比较熟悉，那么HashSet的原理应该很好理解!</p>
-<p> 一.HsahSet概述</p>
-<p>HashSet实现Set接口，由哈希表（实际上是一个HashMap实例）支持。它不保证set 的迭代顺序；特别是它不保证该顺序恒久不变。此类允许使用null元素。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class HashSet&lt;E&gt;  </span><br><span class="line">    extends AbstractSet&lt;E&gt;  </span><br><span class="line">    implements Set&lt;E&gt;, Cloneable, java.io.Serializable  123</span><br></pre></td></tr></table></figure>
-<p>HashSet继承AbstractSet类，实现Set、Cloneable、Serializable接口。其中AbstractSet提供 Set 接口的骨干实现，从而最大限度地减少了实现此接口所需的工作。Set接口是一种不包括重复元素的Collection，它维持它自己的内部排序，所以随机访问没有任何意义。<br><strong>基本属性：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 底层使用HashMap来保存HashSet中所有元素。</span><br><span class="line">    private transient HashMap&lt;E, Object&gt; map;</span><br><span class="line"></span><br><span class="line">    // 定义一个虚拟的Object对象作为HashMap的value，将此对象定义为static final。</span><br><span class="line">    private static final Object PRESENT = new Object();12345</span><br></pre></td></tr></table></figure>
-<p><strong>构造函数：</strong><br>从构造函数中可以看出HashSet所有的构造都是构造出一个新的HashMap，其中最后一个构造函数，为包访问权限是不对外公开，仅仅只在使用LinkedHashSet时才会发生作用。</p>
-<h2 id="二-HsahSet实现"><a href="#二-HsahSet实现" class="headerlink" title="二.HsahSet实现"></a>二.HsahSet实现</h2><p>因为HashSet是基于HashMap，所以对于HashSet，其方法的实现过程是非常简单的。<br>\1. iterator()<br>iterator()方法 返回对此set中元素进行迭代的迭代器。返回元素的顺序并不是特定的。底层实际调用底层HashMap的keySet来返回所有的key。 可见HashSet中的元素，只是存放在了底层HashMap的key上， value使用一个static final的Object对象标识。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public Iterator&lt;E&gt; iterator() &#123;</span><br><span class="line">        return map.keySet().iterator();</span><br><span class="line">    &#125;123</span><br></pre></td></tr></table></figure>
-<p>2.size()<br>返回此set中的元素的数量（set的容量）。底层实际调用HashMap的size()方法返回Entry的数量，就得到该Set中元素的个数,即HashMap容器的大小。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public int size() &#123;</span><br><span class="line">        return map.size();</span><br><span class="line">    &#125;123</span><br></pre></td></tr></table></figure>
-<p>3.isEmpty()<br>isEmpty()判断HashSet()集合是否为空，如果此set不包含任何元素，则返回true。 底层实际调用HashMap的isEmpty()判断该HashSet是否为空。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public boolean isEmpty() &#123;</span><br><span class="line">        return map.isEmpty();</span><br><span class="line">    &#125;123</span><br></pre></td></tr></table></figure>
-<p>4.contains(Object o)<br>contains()，判断某个元素是否存在于HashSet()中，存在返回true，否则返回false。更加确切的讲应该是要满足这种关系才能返回true：(o==null ? e==null : o.equals(e))。底层调用containsKey判断HashMap的key值是否为空。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public boolean contains(Object o) &#123;</span><br><span class="line">        return map.containsKey(o);</span><br><span class="line">    &#125;123</span><br></pre></td></tr></table></figure>
-<p>5.add()<br>add()如果此 set 中尚未包含指定元素，则添加指定元素。如果此Set没有包含满足(e==null ? e2==null : e.equals(e2)) 的e2时，则将e2添加到Set中，否则不添加且返回false。由于底层使用HashMap的put方法将key = e，value=PRESENT构建成key-value键值对，当此e存在于HashMap的key中，则value将会覆盖原有value，但是key保持不变，所以如果将一个已经存在的e元素添加中HashSet中，新添加的元素是不会保存到HashMap中，所以这就满足了HashSet中元素不会重复的特性。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public boolean add(E e) &#123;</span><br><span class="line">        return map.put(e, PRESENT) == null;</span><br><span class="line">    &#125;123</span><br></pre></td></tr></table></figure>
-<p>6.remove()<br>remove()如果指定元素存在于此 set 中，则将其移除。底层使用HashMap的remove方法删除指定的Entry。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public boolean remove(Object o) &#123;</span><br><span class="line">        return map.remove(o) == PRESENT;</span><br><span class="line">    &#125;123</span><br></pre></td></tr></table></figure>
-<p>7.clear()<br>clear()从此 set 中移除所有元素。底层调用HashMap的clear方法清除所有的Entry。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public void clear() &#123;</span><br><span class="line">        map.clear();</span><br><span class="line">    &#125;123</span><br></pre></td></tr></table></figure>
-<p>8.clone()<br>底层实际调用HashMap的clone()方法，获取HashMap的浅表副本,并没有复制这些元素本身。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public Object clone() &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            HashSet&lt;E&gt; newSet = (HashSet&lt;E&gt;) super.clone();</span><br><span class="line">            newSet.map = (HashMap&lt;E, Object&gt;) map.clone();</span><br><span class="line">            return newSet;</span><br><span class="line">        &#125; catch (CloneNotSupportedException e) &#123;</span><br><span class="line">            throw new InternalError();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+        <p>1.在IDEA中设置Git，在File–&gt;Setting-&gt;Version Control–&gt;Git–&gt;Path to Git executable选择你的git安装后的git.exe文件，然后点击Test，测试是否设置成功 。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-3a78234021e6b9ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>2.在IDEA中设置GitHub，File–&gt;Setting-&gt;Version Control–&gt;GibHub</p>
+<p>　　Host：github.com</p>
+<p>　　Token：点击Create API Token，输入在github中注册的用户名和密码生成token</p>
+<p>　　点击Test，测试是否连接成功。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-5d56dba9107a2dac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>3.创建本地仓库，VCS–&gt;Import into Version Control–&gt;Create Git Repository… </p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-d19322318ba1b192.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>4.在弹框中选中项目所在的位置，点击OK，此时项目文件全部变成红色 </p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-48d195e4e590a02f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-bf2793cf37466b54.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>5.上传项目到本地仓库，项目上右键选择Git–&gt;add，此时项目文件变成绿色，此时文件只是处于暂存区，并没有真正进入到版本库中。。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-f45c64c924e10f27.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-72b3da090efa5a67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<ol start="6">
+<li><p>项目右键Git–&gt; Commit Directory，在弹窗中输入first commit  ，点击commit，此时项目文件从暂存区真正进入版本库中，项目文件变成白色 .</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-8308e764e0c742b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-66bcc33d42367ffe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-745b23bdac20b51c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>7.上传项目到GitHub中，VCS–&gt;Import into Version Control–&gt;Share Project on GitHub，在弹框中输入仓库名和描述，点击Share，即可是上传，中间会弹窗输入GitHub的用户名和密码（已输入过用户名和密码并记住的不会再次弹框输入），上传成功后IDEA右下角会给出提示 .</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-01ebb0a620941c4f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-eb051135fb31daf7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-a6872af27837da31.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-82442c45c8d9fd89.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>8.提交修改文件到GitHub</p>
+<p>　　新增文件（红色），右键–&gt;Git–&gt;add，将新增的文件加入本地仓库，此时文件变绿色</p>
+<p>　　修改文件（蓝色）</p>
+<p>　　在项目右键–&gt;Git–&gt;Commit Directory，查看有变动的文件并输入Commit Message，点击Commit and Push…</p>
+<p>　　提交后会进行语法检查，若存在错误或警告会给出确认提示，点击Commit，弹出Push框，点击Push，上传GitHub成功</p>
+</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-b56c31f2a50d3073.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-e9b8fa6740793bd1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-15e55f17c0e15c24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12434140-fd347f226a1c447b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+
       
     </div>
     
@@ -411,8 +444,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/05/HashTable学习笔记/" rel="next" title="HashTable学习笔记">
-                <i class="fa fa-chevron-left"></i> HashTable学习笔记
+              <a href="/2018/06/13/Springboot整合ActiveMQ的一个bug解决/" rel="next" title="Springboot整合ActiveMQ的一个bug解决">
+                <i class="fa fa-chevron-left"></i> Springboot整合ActiveMQ的一个bug解决
               </a>
             
           </div>
@@ -420,10 +453,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/05/HashMap HashTable HashSet三者区别/" rel="prev" title="HashMap HashTable HashSet三者区别">
-                HashMap HashTable HashSet三者区别 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -509,17 +538,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -623,22 +643,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二-HsahSet实现"><span class="nav-number">1.</span> <span class="nav-text">二.HsahSet实现</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
       
       
