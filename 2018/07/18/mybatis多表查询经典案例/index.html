@@ -85,12 +85,12 @@
 
 
 
-<meta name="description" content="mybatis多表查询经典案例需求分析现在有一个需求，条件查询职位，要查出所关联的角色，职位角色由一个中间表关联。 产品原型  用到的表    sql语句在sqlyog中直接用sql语句查出来的效果如下： 1234567891011121314SELECT  p.SM_POSITION_ID,  p.SM_POSITION_NAME,  p.DESCRIPTION,  p.CANUSE,  (SE">
+<meta name="description" content="需求分析现在有一个需求，条件查询职位，要查出所关联的角色，职位角色由一个中间表关联。 产品原型  用到的表    sql语句在sqlyog中直接用sql语句查出来的效果如下： 1234567891011121314SELECT  p.SM_POSITION_ID,  p.SM_POSITION_NAME,  p.DESCRIPTION,  p.CANUSE,  (SELECT    GROUP_C">
 <meta property="og:type" content="article">
-<meta property="og:title" content="郭琪的小站">
+<meta property="og:title" content="mybatis多表查询经典案例">
 <meta property="og:url" content="http://guoqick.cn/2018/07/18/mybatis多表查询经典案例/index.html">
 <meta property="og:site_name" content="郭琪的小站">
-<meta property="og:description" content="mybatis多表查询经典案例需求分析现在有一个需求，条件查询职位，要查出所关联的角色，职位角色由一个中间表关联。 产品原型  用到的表    sql语句在sqlyog中直接用sql语句查出来的效果如下： 1234567891011121314SELECT  p.SM_POSITION_ID,  p.SM_POSITION_NAME,  p.DESCRIPTION,  p.CANUSE,  (SE">
+<meta property="og:description" content="需求分析现在有一个需求，条件查询职位，要查出所关联的角色，职位角色由一个中间表关联。 产品原型  用到的表    sql语句在sqlyog中直接用sql语句查出来的效果如下： 1234567891011121314SELECT  p.SM_POSITION_ID,  p.SM_POSITION_NAME,  p.DESCRIPTION,  p.CANUSE,  (SELECT    GROUP_C">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-6d0110eabaa22e2b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-9a4609c7b8863a1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -99,10 +99,10 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-e55f3105837eb356.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-aa5a8d40a18e0a11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12434140-42e47fb2376c36a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-07-18T04:06:36.432Z">
+<meta property="og:updated_time" content="2018-07-18T04:15:15.293Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="郭琪的小站">
-<meta name="twitter:description" content="mybatis多表查询经典案例需求分析现在有一个需求，条件查询职位，要查出所关联的角色，职位角色由一个中间表关联。 产品原型  用到的表    sql语句在sqlyog中直接用sql语句查出来的效果如下： 1234567891011121314SELECT  p.SM_POSITION_ID,  p.SM_POSITION_NAME,  p.DESCRIPTION,  p.CANUSE,  (SE">
+<meta name="twitter:title" content="mybatis多表查询经典案例">
+<meta name="twitter:description" content="需求分析现在有一个需求，条件查询职位，要查出所关联的角色，职位角色由一个中间表关联。 产品原型  用到的表    sql语句在sqlyog中直接用sql语句查出来的效果如下： 1234567891011121314SELECT  p.SM_POSITION_ID,  p.SM_POSITION_NAME,  p.DESCRIPTION,  p.CANUSE,  (SELECT    GROUP_C">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/12434140-6d0110eabaa22e2b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -139,7 +139,7 @@
 
 
 
-  <title> | 郭琪的小站</title>
+  <title>mybatis多表查询经典案例 | 郭琪的小站</title>
   
 
 
@@ -304,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">mybatis多表查询经典案例</h1>
         
 
         <div class="post-meta">
@@ -359,7 +359,7 @@
       
 
       
-        <h3 id="mybatis多表查询经典案例"><a href="#mybatis多表查询经典案例" class="headerlink" title="mybatis多表查询经典案例"></a>mybatis多表查询经典案例</h3><h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>现在有一个需求，条件查询职位，要查出所关联的角色，职位角色由一个中间表关联。</p>
+        <h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>现在有一个需求，条件查询职位，要查出所关联的角色，职位角色由一个中间表关联。</p>
 <p>产品原型</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/12434140-6d0110eabaa22e2b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <p>用到的表</p>
@@ -640,7 +640,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis多表查询经典案例"><span class="nav-number">1.</span> <span class="nav-text">mybatis多表查询经典案例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#需求分析"><span class="nav-number">1.1.</span> <span class="nav-text">需求分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sql语句"><span class="nav-number">1.2.</span> <span class="nav-text">sql语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mybatis中mapper及mapper-xml书写"><span class="nav-number">1.3.</span> <span class="nav-text">mybatis中mapper及mapper.xml书写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#页面效果"><span class="nav-number">1.4.</span> <span class="nav-text">页面效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拓展"><span class="nav-number">1.5.</span> <span class="nav-text">拓展</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#需求分析"><span class="nav-number">1.</span> <span class="nav-text">需求分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sql语句"><span class="nav-number">2.</span> <span class="nav-text">sql语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mybatis中mapper及mapper-xml书写"><span class="nav-number">3.</span> <span class="nav-text">mybatis中mapper及mapper.xml书写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#页面效果"><span class="nav-number">4.</span> <span class="nav-text">页面效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拓展"><span class="nav-number">5.</span> <span class="nav-text">拓展</span></a></li></ol></div>
             
 
           </div>
