@@ -1,0 +1,979 @@
+﻿<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="true" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="Ih1S6upzow" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="郭琪的小站" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="一：准备数据12345678910111213141516171819202122232425262728293031323334353637383940414243CREATE DATABASE PRACTICE;CREATE TABLE STUDENT(SNO varchar(10),SNAME nvarchar(10),SAGE datetime,SSEX nvarchar(10));INS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL进阶练习题">
+<meta property="og:url" content="http://guoqick.cn/2018/09/12/SQL进阶练习题/index.html">
+<meta property="og:site_name" content="郭琪的小站">
+<meta property="og:description" content="一：准备数据12345678910111213141516171819202122232425262728293031323334353637383940414243CREATE DATABASE PRACTICE;CREATE TABLE STUDENT(SNO varchar(10),SNAME nvarchar(10),SAGE datetime,SSEX nvarchar(10));INS">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-12T14:10:41.996Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SQL进阶练习题">
+<meta name="twitter:description" content="一：准备数据12345678910111213141516171819202122232425262728293031323334353637383940414243CREATE DATABASE PRACTICE;CREATE TABLE STUDENT(SNO varchar(10),SNAME nvarchar(10),SAGE datetime,SSEX nvarchar(10));INS">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://guoqick.cn/2018/09/12/SQL进阶练习题/"/>
+
+
+
+
+
+  <title>SQL进阶练习题 | 郭琪的小站</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+	
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">郭琪的小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">人生如逆旅，我亦是行人。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tag"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/category/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/commonweal/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://guoqick.cn/2018/09/12/SQL进阶练习题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="郭 琪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭琪的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SQL进阶练习题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-12T22:09:25+08:00">
+                2018-09-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一：准备数据"><a href="#一：准备数据" class="headerlink" title="一：准备数据"></a>一：准备数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE PRACTICE;</span><br><span class="line">CREATE TABLE STUDENT(SNO varchar(10),SNAME nvarchar(10),SAGE datetime,SSEX nvarchar(10));</span><br><span class="line">INSERT INTO STUDENT VALUES</span><br><span class="line">(&apos;01&apos; , N&apos;赵雷&apos; , &apos;1990-01-01&apos; , N&apos;男&apos;),</span><br><span class="line">(&apos;02&apos; , N&apos;钱电&apos; , &apos;1990-12-21&apos; , N&apos;男&apos;),</span><br><span class="line">(&apos;03&apos; , N&apos;孙风&apos; , &apos;1990-05-20&apos; , N&apos;男&apos;),</span><br><span class="line">(&apos;04&apos; , N&apos;李云&apos; , &apos;1990-08-06&apos; , N&apos;男&apos;),</span><br><span class="line">(&apos;05&apos; , N&apos;周梅&apos; , &apos;1991-12-01&apos; , N&apos;女&apos;),</span><br><span class="line">(&apos;05&apos; , N&apos;周梅&apos; , &apos;1991-12-01&apos; , N&apos;女&apos;),</span><br><span class="line">(&apos;06&apos; , N&apos;吴兰&apos; , &apos;1992-03-01&apos; , N&apos;女&apos;),</span><br><span class="line">(&apos;07&apos; , N&apos;郑竹&apos; , &apos;1989-07-01&apos; , N&apos;女&apos;),</span><br><span class="line">(&apos;08&apos; , N&apos;王菊&apos; , &apos;1990-01-20&apos; , N&apos;女&apos;);</span><br><span class="line">CREATE TABLE COURSE(CNO varchar(10),CNAME nvarchar(10),TNO varchar(10));</span><br><span class="line">INSERT INTO COURSE VALUES</span><br><span class="line">(&apos;01&apos; , N&apos;语文&apos; , &apos;02&apos;),</span><br><span class="line">(&apos;02&apos; , N&apos;数学&apos; , &apos;01&apos;),</span><br><span class="line">(&apos;03&apos; , N&apos;英语&apos; , &apos;03&apos;);</span><br><span class="line">CREATE TABLE TEACHER(TNO varchar(10),TNAME nvarchar(10));</span><br><span class="line">INSERT INTO TEACHER VALUES</span><br><span class="line">(&apos;01&apos; , N&apos;张三&apos;),</span><br><span class="line">(&apos;02&apos; , N&apos;李四&apos;),</span><br><span class="line">(&apos;03&apos; , N&apos;王五&apos;);</span><br><span class="line">CREATE TABLE SC(SNO varchar(10),CNO varchar(10),SCORE decimal(18,1));</span><br><span class="line">INSERT INTO SC VALUES</span><br><span class="line">(&apos;01&apos; , &apos;01&apos; , 80),</span><br><span class="line">(&apos;01&apos; , &apos;02&apos; , 90),</span><br><span class="line">(&apos;01&apos; , &apos;03&apos; , 99),</span><br><span class="line">(&apos;02&apos; , &apos;01&apos; , 70),</span><br><span class="line">(&apos;02&apos; , &apos;02&apos; , 60),</span><br><span class="line">(&apos;02&apos; , &apos;03&apos; , 80),</span><br><span class="line">(&apos;03&apos; , &apos;01&apos; , 80),</span><br><span class="line">(&apos;03&apos; , &apos;02&apos; , 80),</span><br><span class="line">(&apos;03&apos; , &apos;03&apos; , 80),</span><br><span class="line">(&apos;04&apos; , &apos;01&apos; , 50),</span><br><span class="line">(&apos;04&apos; , &apos;02&apos; , 30),</span><br><span class="line">(&apos;04&apos; , &apos;03&apos; , 20),</span><br><span class="line">(&apos;05&apos; , &apos;01&apos; , 76),</span><br><span class="line">(&apos;05&apos; , &apos;02&apos; , 87),</span><br><span class="line">(&apos;06&apos; , &apos;01&apos; , 31),</span><br><span class="line">(&apos;06&apos; , &apos;03&apos; , 34),</span><br><span class="line">(&apos;07&apos; , &apos;02&apos; , 89),</span><br><span class="line">(&apos;07&apos; , &apos;03&apos; , 98);</span><br><span class="line">12345678910111213141516171819202122232425262728293031323334353637383940414243</span><br></pre></td></tr></table></figure>
+<h2 id="二：题目"><a href="#二：题目" class="headerlink" title="二：题目"></a>二：题目</h2><p>1、<strong>查询”01”课程比”02”课程成绩高的学生的信息及课程分数;</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT A.* , B.SCORE &apos;01课程成绩&apos; ,C.SCORE &apos;02课程成绩&apos;</span><br><span class="line">FROM STUDENT A INNER JOIN (SC B, SC C)</span><br><span class="line">ON A.SNO = B.SNO AND A.SNO = C.SNO AND B.CNO = &apos;01&apos; AND C.CNO = &apos;02&apos;</span><br><span class="line">WHERE B.SCORE&gt;C.SCORE;1234</span><br></pre></td></tr></table></figure>
+<p>2、查询平均成绩大于等于60分的同学的学生编号和学生姓名和平均成绩;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT A.SNO,B.SNAME,AVG(SCORE) AVG_SCORE</span><br><span class="line">FROM SC A INNER JOIN STUDENT B</span><br><span class="line">ON A.SNO=B.SNO</span><br><span class="line">GROUP BY SNO </span><br><span class="line">HAVING AVG(SCORE)&gt;=60;12345</span><br></pre></td></tr></table></figure>
+<p>3、查询所有同学的学生编号、学生姓名、选课总数、所有课程的总成绩;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT A.SNO,A.SNAME,COUNT(B.CNO) COUNT_CNO,SUM(SCORE) SUM_SCORE</span><br><span class="line">FROM STUDENT A INNER JOIN SC B</span><br><span class="line">ON A.SNO=B.SNO GROUP BY A.SNO; 123</span><br></pre></td></tr></table></figure>
+<p>4、查询”李”姓老师的数量;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT COUNT(*) FROM TEACHER</span><br><span class="line">WHERE TNAME LIKE &apos;李%&apos;;12</span><br></pre></td></tr></table></figure>
+<p>5、查询学过”张三”老师授课的同学的信息；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT P.* FROM STUDENT P INNER JOIN SC Q</span><br><span class="line">ON P.SNO=Q.SNO</span><br><span class="line">WHERE Q.CNO=(</span><br><span class="line">SELECT B.CNO</span><br><span class="line">FROM TEACHER A ,COURSE B</span><br><span class="line">WHERE A.TNO=B.TNO AND A.TNAME=&apos;张三&apos;);123456</span><br></pre></td></tr></table></figure>
+<p><strong>6、查询没学过”张三”老师授课的同学的信息;</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM STUDENT </span><br><span class="line">WHERE SNO NOT IN </span><br><span class="line">(SELECT DISTINCT B.SNO</span><br><span class="line">FROM TEACHER A,SC B,COURSE C</span><br><span class="line">WHERE A.TNO=C.TNO AND B.CNO=C.CNO AND A.TNAME=&apos;张三&apos;);12345</span><br></pre></td></tr></table></figure>
+<p>7、查询学过编号为”01”并且也学过编号为”02”的课程的同学的信息;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM STUDENT</span><br><span class="line">WHERE SNO IN (</span><br><span class="line">SELECT A.SNO FROM SC A ,SC B </span><br><span class="line">WHERE A.SNO=B.SNO AND A.CNO=&apos;01&apos; AND B.CNO=&apos;02&apos;);1234</span><br></pre></td></tr></table></figure>
+<p>8、查询学过编号为”01”但是没有学过编号为”02”的课程的同学的信息;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM STUDENT</span><br><span class="line">WHERE SNO IN (</span><br><span class="line">SELECT SNO FROM SC WHERE CNO=&apos;01&apos;) </span><br><span class="line">AND SNO NOT IN (</span><br><span class="line">SELECT SNO FROM SC WHERE CNO=&apos;02&apos;)12345</span><br></pre></td></tr></table></figure>
+<p>9、查询没有学全所有课程的同学的信息;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM STUDENT</span><br><span class="line">WHERE SNO NOT IN (</span><br><span class="line">SELECT SNO FROM SC GROUP BY SNO</span><br><span class="line">HAVING COUNT(CNO)=3);1234</span><br></pre></td></tr></table></figure>
+<p>10、查询至少有一门课与学号为”01”的同学所学相同的同学的信息;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT A.* FROM STUDENT A ,SC B</span><br><span class="line">WHERE A.SNO=B.SNO AND CNO IN</span><br><span class="line">(SELECT CNO FROM SC WHERE SNO=01) </span><br><span class="line">AND A.SNO&lt;&gt;011234</span><br></pre></td></tr></table></figure>
+<p><strong>11、查询和”01”号的同学学习的课程完全相同的其他同学的信息 ;</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM STUDENT</span><br><span class="line">WHERE SNO IN (</span><br><span class="line">SELECT A.SNO FROM STUDENT A  INNER JOIN SC B ON A.SNO=B.SNO</span><br><span class="line">WHERE A.SNO&lt;&gt;01 AND B.CNO IN (SELECT CNO FROM SC WHERE SNO=01)</span><br><span class="line">GROUP BY A.SNO HAVING COUNT(B.CNO)=(SELECT count(*) FROM SC WHERE SNO=01)</span><br><span class="line">);  123456</span><br></pre></td></tr></table></figure>
+<p>12、查询没学过”张三”老师讲授的任一门课程的学生姓名；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT SNAME FROM STUDENT</span><br><span class="line">WHERE SNO NOT IN (</span><br><span class="line">SELECT SNO FROM SC </span><br><span class="line">WHERE CNO IN (</span><br><span class="line">SELECT B.CNO FROM TEACHER A,COURSE B WHERE A.TNO=B.TNO AND A.TNAME=&apos;张三&apos;)</span><br><span class="line">)123456</span><br></pre></td></tr></table></figure>
+<p>13、查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT A.SNO,A.SNAME,AVG(B.SCORE) AVG_SCORE</span><br><span class="line">FROM STUDENT A,SC B </span><br><span class="line">WHERE A.SNO=B.SNO AND B.SCORE&lt;60</span><br><span class="line">GROUP BY A.SNO </span><br><span class="line">HAVING  COUNT(*)&gt;=212345</span><br></pre></td></tr></table></figure>
+<p>14、检索”01”课程分数小于60，按分数降序排列的学生信息；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT A.*,B.CNO,B.SCORE</span><br><span class="line">FROM STUDENT A,SC B</span><br><span class="line">WHERE A.SNO=B.SNO AND B.CNO=01 AND B.SCORE&lt;60</span><br><span class="line">ORDER BY SCORE DESC;1234</span><br></pre></td></tr></table></figure>
+<p>15、按平均成绩从高到低显示所有学生的所有课程的成绩以及平均成绩;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT SNO,GROUP_CONCAT(CNO),GROUP_CONCAT(SCORE),AVG(SCORE) FROM SC</span><br><span class="line">GROUP BY SNO ORDER BY AVG(SCORE) DESC12</span><br></pre></td></tr></table></figure>
+<p>16、<strong>查询各科成绩最高分、最低分和平均分：以如下形式显示：课程ID，课程name，最高分，最低分，平均分，及格率</strong>;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT CNO,CNAME,</span><br><span class="line">(SELECT MAX(SCORE) FROM SC WHERE CNO=A.CNO)MAX_SCORE,</span><br><span class="line">(SELECT MIN(SCORE) FROM SC WHERE CNO=A.CNO)MIN_SCORE,</span><br><span class="line">(SELECT AVG(SCORE) FROM SC WHERE CNO=A.CNO)AVG_SCORE,</span><br><span class="line">(SELECT COUNT(*) FROM SC WHERE CNO=A.CNO AND SCORE&gt;=60)/(SELECT COUNT(*) FROM SC WHERE CNO=A.CNO)*100 &apos;及格率%&apos;</span><br><span class="line">FROM COURSE AS A ORDER BY CNO123456</span><br></pre></td></tr></table></figure>
+<p><strong>17、按各科成绩进行排序，并显示排名</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT SNO,CNO,SCORE,(SELECT COUNT(1)+1 FROM SC WHERE SCORE&gt; A.SCORE AND CNO=A.CNO) RANK</span><br><span class="line">FROM SC A</span><br><span class="line">ORDER BY CNO,SCORE DESC;123</span><br></pre></td></tr></table></figure>
+<p>18、查询学生的总成绩并进行排名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT SNO,SUM(SCORE)</span><br><span class="line">FROM SC</span><br><span class="line">GROUP BY SNO </span><br><span class="line">ORDER BY SUM(SCORE) DESC1234</span><br></pre></td></tr></table></figure>
+<p>19、查询不同老师所教不同课程平均分从高到低显示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT A.TNAME,AVG(B.SCORE)</span><br><span class="line">FROM TEACHER A,SC B,COURSE C</span><br><span class="line">WHERE A.TNO=C.TNO AND B.CNO=C.CNO</span><br><span class="line">GROUP BY A.TNO</span><br><span class="line">ORDER BY AVG(B.SCORE) DESC12345</span><br></pre></td></tr></table></figure>
+<p><strong>20、查询所有课程的成绩第2名到第3名的学生信息及该课程成绩</strong></p>
+<p><strong>21、统计各科成绩各分数段人数：课程编号,课程名称,[100-85],[85-70],[70-60],[0-60]及所占百分比</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">SELECT CNO,</span><br><span class="line">SUM(CASE WHEN SCORE&lt;=100 AND SCORE&gt;=85 THEN 1 ELSE 0 END) &apos;[100-85]人数&apos;,</span><br><span class="line">CAST(SUM(CASE WHEN SCORE&lt;=100 AND SCORE&gt;=85 THEN 1 ELSE 0 END)/COUNT(*) AS DECIMAL(5,2)) &apos;占比&apos;,</span><br><span class="line">SUM(CASE WHEN SCORE&lt;85 AND SCORE&gt;=70 THEN 1 ELSE 0 END) &apos;[70-85]人数&apos;,</span><br><span class="line">CAST(SUM(CASE WHEN SCORE&lt;85 AND SCORE&gt;=70 THEN 1 ELSE 0 END)/COUNT(*) AS DECIMAL(5,2)) &apos;占比&apos;,</span><br><span class="line">SUM(CASE WHEN SCORE&lt;70 AND SCORE&gt;=60 THEN 1 ELSE 0 END) &apos;[60-70]人数&apos;,</span><br><span class="line">CAST(SUM(CASE WHEN SCORE&lt;70 AND SCORE&gt;=60 THEN 1 ELSE 0 END)/COUNT(*) AS DECIMAL(5,2)) &apos;占比&apos;,</span><br><span class="line">SUM(CASE WHEN SCORE&lt;60 THEN 1 ELSE 0 END) &apos;[0-60]人数&apos;,</span><br><span class="line">CAST(SUM(CASE WHEN SCORE&lt;60 THEN 1 ELSE 0 END)/COUNT(*) AS DECIMAL(5,2)) &apos;占比&apos;</span><br><span class="line">FROM SC</span><br><span class="line">GROUP BY CNO1234567891011</span><br></pre></td></tr></table></figure>
+<p>22、查询学生平均成绩及其名次</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT A.SNO,A.AVG,COUNT(*) &apos;名次&apos;</span><br><span class="line">FROM (SELECT SNO,AVG(SCORE) AVG FROM SC GROUP BY SNO) A</span><br><span class="line">INNER JOIN (SELECT SNO,AVG(SCORE) AVG FROM SC GROUP BY SNO) B</span><br><span class="line">ON A.AVG&lt;=B.AVG</span><br><span class="line">GROUP BY A.SNO</span><br><span class="line">ORDER BY A.AVG DESC123456</span><br></pre></td></tr></table></figure>
+<p><strong>23、查询各科成绩前三名的记录</strong></p>
+<p>24、查询每门课程被选修的学生数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT CNO,COUNT(*)</span><br><span class="line">FROM SC GROUP BY CNO12</span><br></pre></td></tr></table></figure>
+<p>25、查询出只选修两门课程的全部学生的学号和姓名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT A.SNO,B.SNAME</span><br><span class="line">FROM SC  A INNER JOIN STUDENT B ON A.SNO=B.SNO</span><br><span class="line">GROUP BY A.SNO HAVING COUNT(*)=2123</span><br></pre></td></tr></table></figure>
+<p>26、查询男、女生人数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT SSEX,COUNT(*) FROM STUDENT GROUP BY SSEX1</span><br></pre></td></tr></table></figure>
+<p>27、查询名字中含有”风”字的学生信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM STUDENT WHERE SNAME LIKE &apos;%风%&apos;1</span><br></pre></td></tr></table></figure>
+<p>28、查询同名同性学生名单，并统计同名人数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT SNAME,COUNT(*)</span><br><span class="line">FROM STUDENT </span><br><span class="line">GROUP BY SNAME</span><br><span class="line">HAVING COUNT(*)&gt;11234</span><br></pre></td></tr></table></figure>
+<p>29、查询1990年出生的学生名单(注：Student表中Sage列的类型是datetime)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT SNAME FROM STUDENT</span><br><span class="line">WHERE YEAR(SAGE)=199012</span><br></pre></td></tr></table></figure>
+<p>30、查询每门课程的平均成绩，结果按平均成绩降序排列，平均成绩相同时，按课程编号升序排列</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT CNO,AVG(SCORE)</span><br><span class="line">FROM SC GROUP BY CNO</span><br><span class="line">ORDER BY AVG(SCORE) DESC,CNO123</span><br></pre></td></tr></table></figure>
+<p>31、查询平均成绩大于等于85的所有学生的学号、姓名和平均成绩</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT A.SNO,B.SNAME,AVG(A.SCORE)</span><br><span class="line">FROM SC A INNER JOIN STUDENT B</span><br><span class="line">ON A.SNO=B.SNO</span><br><span class="line">GROUP BY A.SNO</span><br><span class="line">HAVING AVG(A.SCORE)&gt;=8512345</span><br></pre></td></tr></table></figure>
+<p>32、查询课程名称为”数学”，且分数低于60的学生姓名和分数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT A.SNO,A.SNAME,B.SCORE</span><br><span class="line">FROM STUDENT A JOIN (SC B,COURSE C)</span><br><span class="line">ON A.SNO=B.SNO AND B.CNO=C.CNO</span><br><span class="line">WHERE C.CNAME=&apos;数学&apos; AND B.SCORE&lt;601234</span><br></pre></td></tr></table></figure>
+<p>33、查询所有学生的课程及分数情况；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT A.SNAME,C.CNAME,B.SCORE</span><br><span class="line">FROM STUDENT A,SC B,COURSE C</span><br><span class="line">WHERE A.SNO=B.SNO AND B.CNO=C.CNO123</span><br></pre></td></tr></table></figure>
+<p>34、查询任何一门课程成绩在70分以上的学生姓名、课程名称和分数；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT A.SNAME,C.CNAME,B.SCORE</span><br><span class="line">FROM STUDENT A,SC B,COURSE C</span><br><span class="line">WHERE A.SNO=B.SNO AND B.CNO=C.CNO</span><br><span class="line">AND B.SCORE&gt;=701234</span><br></pre></td></tr></table></figure>
+<p>35、查询不及格的学生的学号和课程号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT SNO,CNO FROM SC WHERE SCORE&lt;601</span><br></pre></td></tr></table></figure>
+<p>36、查询课程编号为01且课程成绩在80分以上的学生的学号和姓名；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT B.SNO,B.SNAME</span><br><span class="line">FROM SC A INNER JOIN STUDENT B ON A.SNO=B.SNO</span><br><span class="line">WHERE A.CNO=01 AND A.SCORE&gt;=80123</span><br></pre></td></tr></table></figure>
+<p>37、求每门课程的学生人数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT CNO,COUNT(*) FROM SC GROUP BY CNO;1</span><br></pre></td></tr></table></figure>
+<p>38、查询选修”张三”老师所授课程的学生中，成绩最高的学生信息及其成绩</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT A.*,MAX(B.SCORE)</span><br><span class="line">FROM STUDENT A,SC B,COURSE C,TEACHER D</span><br><span class="line">WHERE A.SNO=B.SNO AND B.CNO=C.CNO AND C.TNO=D.TNO</span><br><span class="line">AND D.TNAME=&apos;张三&apos;1234</span><br></pre></td></tr></table></figure>
+<p>39、查询不同课程成绩相同的学生的学生编号、课程编号、学生成绩</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT A.*</span><br><span class="line">FROM SC A INNER JOIN SC B </span><br><span class="line">ON A.SNO=B.SNO</span><br><span class="line">WHERE A.CNO&lt;&gt;B.CNO AND A.SCORE=B.SCORE 1234</span><br></pre></td></tr></table></figure>
+<p>40、查询每门功成绩最好的前两名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT A.*,MAX(B.SCORE)</span><br><span class="line">FROM STUDENT A JOIN (SC B,COURSE C,TEACHER D)</span><br><span class="line">ON A.SNO=B.SNO AND B.CNO=C.CNO AND C.TNO=D.TNO</span><br><span class="line">WHERE D.TNAME=&apos;张三&apos; 1234</span><br></pre></td></tr></table></figure>
+<p>41、统计每门课程的学生选修人数（超过5人的课程才统计）。要求输出课程号和选修人数，查询结果按人数降序排列，若人数相同，按课程号升序排列</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT CNO,COUNT(*)</span><br><span class="line">FROM SC</span><br><span class="line">GROUP BY CNO</span><br><span class="line">HAVING COUNT(*)&gt;=5</span><br><span class="line">ORDER BY COUNT(*) DESC,CNO12345</span><br></pre></td></tr></table></figure>
+<p>42、检索至少选修两门课程的学生学号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT SNO FROM SC</span><br><span class="line">GROUP BY SNO</span><br><span class="line">HAVING COUNT(*)&gt;=2123</span><br></pre></td></tr></table></figure>
+<p>43、查询选修了全部课程的学生信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT B.*</span><br><span class="line">FROM SC A INNER JOIN STUDENT B ON A.SNO=B.SNO</span><br><span class="line">GROUP BY A.SNO</span><br><span class="line">HAVING COUNT(*)=(SELECT COUNT(*) FROM COURSE)1234</span><br></pre></td></tr></table></figure>
+<p>44、查询各学生的年龄</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT SNAME,YEAR(NOW())-YEAR(SAGE) AGE</span><br><span class="line">FROM STUDENT12</span><br></pre></td></tr></table></figure>
+<p>45、查询本周过生日的学生</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT SNAME FROM STUDENT WHERE WEEK(SAGE)=WEEK(NOW())1</span><br></pre></td></tr></table></figure>
+<p>46、查询下周过生日的学生</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT SNAME FROM STUDENT WHERE WEEK(SAGE)=WEEK(NOW())+11</span><br></pre></td></tr></table></figure>
+<p>47、查询本月过生日的学生</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT SNAME FROM STUDENT WHERE MONTH(SAGE)=MONTH(NOW())1</span><br></pre></td></tr></table></figure>
+<p>48、查询下月过生日的学生</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT SNAME FROM STUDENT WHERE MONTH(SAGE)=MONTH(NOW())+11</span><br></pre></td></tr></table></figure>
+<p>49、查询学生成绩的及格状况，以学生姓名、科目、及格状况显示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT B.SNAME,C.CNAME,A.SCORE,IF(A.SCORE&gt;=60,&apos;及格&apos;,&apos;不及格&apos;)</span><br><span class="line">FROM SC A,STUDENT B,COURSE C</span><br><span class="line">WHERE A.SNO=B.SNO AND A.CNO=C.CNO</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+	
+	<div>
+  
+    ﻿<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.png" alt="郭 琪 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/12/SQL基础练习题/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        ﻿ <!--MOB SHARE BEGIN-->
+                                <div class="-mob-share-ui-button -mob-share-open">分享</div>
+                                <div class="-mob-share-ui" style="display: none">
+                                    <ul class="-mob-share-list">
+                                        <li class="-mob-share-weibo"><p>新浪微博</p></li>
+                                        <li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+                                        <li class="-mob-share-qzone"><p>QQ空间</p></li>
+                                        <li class="-mob-share-qq"><p>QQ好友</p></li>
+                                        <li class="-mob-share-weixin"><p>微信</p></li>
+                                        <li class="-mob-share-douban"><p>豆瓣</p></li>
+                                        <li class="-mob-share-renren"><p>人人网</p></li>
+                                        <li class="-mob-share-kaixin"><p>开心网</p></li>
+                                        <li class="-mob-share-facebook"><p>Facebook</p></li>
+                                        <li class="-mob-share-twitter"><p>Twitter</p></li>
+                                        <li class="-mob-share-pocket"><p>Pocket</p></li>
+                                        <li class="-mob-share-google"><p>Google+</p></li>
+                                        <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+                                        <li class="-mob-share-mingdao"><p>明道</p></li>
+                                        <li class="-mob-share-pengyou"><p>朋友网</p></li>
+                                        <li class="-mob-share-tumblr"><p>Tumblr</p></li>
+                                        <li class="-mob-share-instapaper"><p>Instapaper</p></li>
+                                        <li class="-mob-share-linkedin"><p>LinkedIn</p></li>
+                                    </ul>
+                                    <div class="-mob-share-close">取消</div>
+                                </div>
+                                <div class="-mob-share-ui-bg"></div>
+                                <script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=25e1879146e04"></script>
+                                <!--MOB SHARE END-->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjU4Ny8xMzEyMg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="郭 琪" />
+            
+              <p class="site-author-name" itemprop="name">郭 琪</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+                        
+          </nav>
+          
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/guoqick" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:guoqi303@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/6293906909" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-globe"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/gqhpstar/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/2cd89e69f92a" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.imooc.com/" title="慕课网" target="_blank">慕课网</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.csdn.net/" title="CSDN官方" target="_blank">CSDN官方</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一：准备数据"><span class="nav-number">1.</span> <span class="nav-text">一：准备数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二：题目"><span class="nav-number">2.</span> <span class="nav-text">二：题目</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+      
+      
+    
+	</div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qi Guo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
